@@ -1,6 +1,6 @@
 # Full-Stack Learning
 
-Repositório dedicado à documentação da minha evolução em Desenvolvimento Web Full-Stack, lógica de programação e bancos de dados.
+Repositório dedicado à documentação da minha evolução em Desenvolvimento Full-Stack.
 
 > **Nota:** Os códigos, exercícios e projetos presentes neste repositório foram desenvolvidos durante cursos complementares e trilhas de aprendizado guiado, servindo como base de estudo e prática contínua.
 
