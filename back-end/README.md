@@ -1,6 +1,6 @@
 # Estudos de Back-End & Dados
 
-Repositório de estudos focado em lógica de programação, estruturas de dados, bancos de dados relacionais e fundamentos para desenvolvimento server-side.
+Repositório de estudos focado em lógica de programação, estruturas de dados, bancos de dados relacionais e fundamentos para desenvolvimento back-end.
 
 > **Status:** Em andamento — atualmente consolidando a base de lógica e bancos de dados antes de avançar para o desenvolvimento de APIs e aplicações web completas.
 
