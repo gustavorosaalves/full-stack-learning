@@ -1,0 +1,645 @@
+- -------------------------------------------------------- -- Servidor: 127.0.0.1 -- Versão do servidor:
+10.11.1-MariaDB - mariadb.org binary distribution -- OS do Servidor: Win64 -- HeidiSQL Versão:
+12.11.0.7065 -- -------------------------------------------------------- /*!40101 SET
+@OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */; /*!40101 SET
+NAMES utf8 */; /*!50503 SET NAMES utf8mb4 */; /*!40103 SET
+@OLD_TIME_ZONE=@@TIME_ZONE */; /*!40103 SET TIME_ZONE='+00:00' */; /*!40014 SET
+@OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS,
+FOREIGN_KEY_CHECKS=0 */; /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE,
+SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */; /*!40111 SET
+@OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */; -- Copiando estrutura do banco
+de dados para banco_dados_populado CREATE DATABASE IF NOT EXISTS
+`banco_dados_populado` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE
+latin1_swedish_ci */; USE `banco_dados_populado`; -- Copiando estrutura para tabela
+banco_dados_populado.clientes CREATE TABLE IF NOT EXISTS `clientes` ( `id_cliente` int(11)
+NOT NULL AUTO_INCREMENT, `nome` varchar(100) NOT NULL, `cpf` char(11) NOT NULL,
+`email` varchar(100) NOT NULL, `telefone` varchar(20) DEFAULT NULL, `cidade` varchar(80)
+NOT NULL, `estado` char(2) NOT NULL, `data_cadastro` date NOT NULL, PRIMARY KEY
+(`id_cliente`), UNIQUE KEY `cpf` (`cpf`), UNIQUE KEY `email` (`email`) ) ENGINE=InnoDB
+AUTO_INCREMENT=101 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci; -
+Copiando dados para a tabela banco_dados_populado.clientes: ~100 rows (aproximadamente)
+REPLACE INTO `clientes` (`id_cliente`, `nome`, `cpf`, `email`, `telefone`, `cidade`, `estado`,
+`data_cadastro`) VALUES (1, 'Ana Silva', '12345678901', 'ana.silva@email.com', '(11) 91234
+5678', 'São Paulo', 'SP', '2024-01-15'), (2, 'Bruno Santos', '23456789012',
+'bruno.santos@email.com', '(21) 92345-6789', 'Rio de Janeiro', 'RJ', '2024-01-20'), (3, 'Carla
+Oliveira', '34567890123', 'carla.oliveira@email.com', '(31) 93456-7890', 'Belo Horizonte', 'MG',
+'2024-01-25'), (4, 'Daniel Pereira', '45678901234', 'daniel.pereira@email.com', '(41) 94567
+8901', 'Curitiba', 'PR', '2024-02-01'), (5, 'Elena Costa', '56789012345', 'elena.costa@email.com',
+'(51) 95678-9012', 'Porto Alegre', 'RS', '2024-02-05'), (6, 'Fernando Lima', '67890123456',
+'fernando.lima@email.com', '(61) 96789-0123', 'Brasília', 'DF', '2024-02-10'), (7, 'Gabriela
+Rocha', '78901234567', 'gabriela.rocha@email.com', '(71) 97890-1234', 'Salvador', 'BA', '2024
+02-15'), (8, 'Henrique Alves', '89012345678', 'henrique.alves@email.com', '(81) 98901-2345',
+'Recife', 'PE', '2024-02-20'), (9, 'Isabela Martins', '90123456789', 'isabela.martins@email.com',
+'(91) 99012-3456', 'Belém', 'PA', '2024-02-25'), (10, 'João Ferreira', '01234567890',
+'joao.ferreira@email.com', '(11) 90123-4567', 'São Paulo', 'SP', '2024-03-01'), (11, 'Karina
+Souza', '11223344556', 'karina.souza@email.com', '(21) 91234-5670', 'Niterói', 'RJ', '2024-03
+05'), (12, 'Leonardo Gomes', '22334455667', 'leonardo.gomes@email.com', '(31) 92345-6781',
+'Contagem', 'MG', '2024-03-10'), (13, 'Mariana Ribeiro', '33445566778',
+'mariana.ribeiro@email.com', '(41) 93456-7892', 'Londrina', 'PR', '2024-03-15'), (14, 'Nicolas
+Carvalho', '44556677889', 'nicolas.carvalho@email.com', '(51) 94567-8903', 'Caxias do Sul',
+'RS', '2024-03-20'), (15, 'Olivia Nunes', '55667788990', 'olivia.nunes@email.com', '(61) 95678
+9014', 'Goiânia', 'GO', '2024-03-25'), (16, 'Paulo Mendes', '66778899001',
+'paulo.mendes@email.com', '(71) 96789-0125', 'Feira de Santana', 'BA', '2024-04-01'), (17,
+'Quintino Barbosa', '77889900112', 'quintino.barbosa@email.com', '(81) 97890-1236', 'Olinda',
+'PE', '2024-04-05'), (18, 'Rafaela Cardoso', '88990011223', 'rafaela.cardoso@email.com', '(91)
+98901-2347', 'Ananindeua', 'PA', '2024-04-10'), (19, 'Samuel Teixeira', '99001122334',
+'samuel.teixeira@email.com', '(11) 99012-3458', 'Campinas', 'SP', '2024-04-15'), (20, 'Tatiana
+Melo', '00112233445', 'tatiana.melo@email.com', '(21) 90123-4569', 'Duque de Caxias', 'RJ',
+'2024-04-20'), (21, 'Ubirajara Castro', '11122233344', 'ubirajara.castro@email.com', '(31) 91234
+5671', 'Uberlândia', 'MG', '2024-04-25'), (22, 'Valentina Lopes', '22233344455',
+'valentina.lopes@email.com', '(41) 92345-6782', 'Maringá', 'PR', '2024-05-01'), (23, 'Wagner
+Batista', '33344455566', 'wagner.batista@email.com', '(51) 93456-7893', 'Pelotas', 'RS', '2024
+05-05'), (24, 'Xenia Barros', '44455566677', 'xenia.barros@email.com', '(61) 94567-8904',
+'Aparecida de Goiânia', 'GO', '2024-05-10'), (25, 'Yuri Machado', '55566677788',
+'yuri.machado@email.com', '(71) 95678-9015', 'Vitória da Conquista', 'BA', '2024-05-15'), (26,
+'Zoe Araujo', '66677788899', 'zoe.araujo@email.com', '(81) 96789-0126', 'Jaboatão dos
+Guararapes', 'PE', '2024-05-20'), (27, 'Adriano Freitas', '77788899900',
+'adriano.freitas@email.com', '(91) 97890-1237', 'Santarém', 'PA', '2024-05-25'), (28, 'Beatriz
+Azevedo', '88899900011', 'beatriz.azevedo@email.com', '(11) 98901-2348', 'São José dos
+Campos', 'SP', '2024-06-01'), (29, 'Caio Cunha', '99900011122', 'caio.cunha@email.com', '(21)
+99012-3459', 'Nova Iguaçu', 'RJ', '2024-06-05'), (30, 'Débora Farias', '12312312345',
+'debora.farias@email.com', '(31) 90123-4560', 'Juiz de Fora', 'MG', '2024-06-10'), (31, 'Eduardo
+Neves', '23423423456', 'eduardo.neves@email.com', '(41) 91234-5672', 'Foz do Iguaçu', 'PR',
+'2024-06-15'), (32, 'Fabiana Ramos', '34534534567', 'fabiana.ramos@email.com', '(51) 92345
+6783', 'Santa Maria', 'RS', '2024-06-20'), (33, 'Gustavo Pires', '45645645678',
+'gustavo.pires@email.com', '(61) 93456-7894', 'Anápolis', 'GO', '2024-06-25'), (34, 'Helena
+Leite', '56756756789', 'helena.leite@email.com', '(71) 94567-8905', 'Ilhéus', 'BA', '2024-07-01'),
+(35, 'Igor Campos', '67867867890', 'igor.campos@email.com', '(81) 95678-9016', 'Petrolina',
+'PE', '2024-07-05'), (36, 'Juliana Monteiro', '78978978901', 'juliana.monteiro@email.com', '(91)
+96789-0127', 'Castanhal', 'PA', '2024-07-10'), (37, 'Klaus Maia', '89089089012',
+'klaus.maia@email.com', '(11) 97890-1238', 'Ribeirão Preto', 'SP', '2024-07-15'), (38, 'Larissa
+Dias', '90190190123', 'larissa.dias@email.com', '(21) 98901-2349', 'São Gonçalo', 'RJ', '2024
+07-20'), (39, 'Marcelo Rezende', '12121212121', 'marcelo.rezende@email.com', '(31) 99012
+3450', 'Montes Claros', 'MG', '2024-07-25'), (40, 'Natália Severo', '23232323232',
+'natalia.severo@email.com', '(41) 90123-4561', 'Ponta Grossa', 'PR', '2024-08-01'), (41, 'Otávio
+Moreira', '34343434343', 'otavio.moreira@email.com', '(51) 91234-5673', 'Novo Hamburgo',
+'RS', '2024-08-05'), (42, 'Patrícia Vargas', '45454545454', 'patricia.vargas@email.com', '(61)
+92345-6784', 'Rio Verde', 'GO', '2024-08-10'), (43, 'Rafael Andrade', '56565656565',
+'rafael.andrade@email.com', '(71) 93456-7895', 'Juazeiro', 'BA', '2024-08-15'), (44, 'Sabrina
+Torres', '67676767676', 'sabrina.torres@email.com', '(81) 94567-8906', 'Caruaru', 'PE', '2024-08
+20'), (45, 'Thiago Sales', '78787878787', 'thiago.sales@email.com', '(91) 95678-9017', 'Marabá',
+'PA', '2024-08-25'), (46, 'Ursula Viana', '89898989898', 'ursula.viana@email.com', '(11) 96789
+0128', 'Santos', 'SP', '2024-09-01'), (47, 'Vinícius Xavier', '90909090909',
+'vinicius.xavier@email.com', '(21) 97890-1239', 'Volta Redonda', 'RJ', '2024-09-05'), (48,
+'Wanessa Zago', '11122233355', 'wanessa.zago@email.com', '(31) 98901-2340', 'Divinópolis',
+'MG', '2024-09-10'), (49, 'Yasmin Aguiar', '22233344466', 'yasmin.aguiar@email.com', '(41)
+99012-3451', 'Cascavel', 'PR', '2024-09-15'), (50, 'Alexandre Brito', '33344455577',
+'alexandre.brito@email.com', '(51) 90123-4562', 'Santana do Livramento', 'RS', '2024-09-20'),
+(51, 'Bianca Chaves', '44455566688', 'bianca.chaves@email.com', '(61) 91234-5674', 'Luziânia',
+'GO', '2024-09-25'), (52, 'Cristiano Duarte', '55566677799', 'cristiano.duarte@email.com', '(71)
+92345-6785', 'Lauro de Freitas', 'BA', '2024-10-01'), (53, 'Daniela Esteves', '66677788800',
+'daniela.esteves@email.com', '(81) 93456-7896', 'Paulista', 'PE', '2024-10-05'), (54, 'Elton
+Figueiredo', '77788899911', 'elton.figueiredo@email.com', '(91) 94567-8907', 'Parauapebas',
+'PA', '2024-10-10'), (55, 'Flávia Guimarães', '88899900022', 'flavia.guimaraes@email.com', '(11)
+95678-9018', 'São Bernardo do Campo', 'SP', '2024-10-15'), (56, 'Guilherme Henriques',
+'99900011133', 'guilherme.henriques@email.com', '(21) 96789-0129', 'Campos dos
+Goytacazes', 'RJ', '2024-10-20'), (57, 'Hortência Iglesias', '12345678913',
+'hortencia.iglesias@email.com', '(31) 97890-1230', 'Betim', 'MG', '2024-10-25'), (58, 'Ivan
+Junqueira', '23456789024', 'ivan.junqueira@email.com', '(41) 98901-2341', 'São José dos
+Pinhais', 'PR', '2024-11-01'), (59, 'Jéssica Kato', '34567890135', 'jessica.kato@email.com', '(51)
+99012-3452', 'Rio Grande', 'RS', '2024-11-05'), (60, 'Kauê Lourenço', '45678901246',
+'kaue.lourenco@email.com', '(61) 90123-4563', 'Valparaíso de Goiás', 'GO', '2024-11-10'), (61,
+'Letícia Miranda', '56789012357', 'leticia.miranda@email.com', '(71) 91234-5675', 'Porto
+Seguro', 'BA', '2024-11-15'), (62, 'Maurício Neto', '67890123468', 'mauricio.neto@email.com',
+'(81) 92345-6786', 'Garanhuns', 'PE', '2024-11-20'), (63, 'Nádia Oliveira', '78901234579',
+'nadia.oliveira@email.com', '(91) 93456-7897', 'Paragominas', 'PA', '2024-11-25'), (64, 'Osmar
+Paiva', '89012345680', 'osmar.paiva@email.com', '(11) 94567-8908', 'São Caetano do Sul', 'SP',
+'2024-12-01'), (65, 'Priscila Queirós', '90123456791', 'priscila.queiros@email.com', '(21) 95678
+9019', 'Petrópolis', 'RJ', '2024-12-05'), (66, 'Renato Rodrigues', '11223344557',
+'renato.rodrigues@email.com', '(31) 96789-0120', 'Governador Valadares', 'MG', '2024-12-10'),
+(67, 'Simone Siqueira', '22334455668', 'simone.siqueira@email.com', '(41) 97890-1231',
+'Colombo', 'PR', '2024-12-15'), (68, 'Tomás Tavares', '33445566779',
+'tomas.tavares@email.com', '(51) 98901-2342', 'Passo Fundo', 'RS', '2024-12-20'), (69, 'Úrsula
+Uchoa', '44556677880', 'ursula.uchoa@email.com', '(61) 99012-3453', 'Trindade', 'GO', '2024
+12-25'), (70, 'Valdir Veloso', '55667788991', 'valdir.veloso@email.com', '(71) 90123-4564',
+'Jequié', 'BA', '2025-01-01'), (71, 'Waleska Werner', '66778899002',
+'waleska.werner@email.com', '(81) 91234-5676', 'Vitória de Santo Antão', 'PE', '2025-01-05'),
+(72, 'Xuxa Xavier', '77889900113', 'xuxa.xavier@email.com', '(91) 92345-6787', 'Tucuruí', 'PA',
+'2025-01-10'), (73, 'Yago Yoshioka', '88990011224', 'yago.yoshioka@email.com', '(11) 93456
+7898', 'Mogi das Cruzes', 'SP', '2025-01-15'), (74, 'Zilda Zaramela', '99001122335',
+'zilda.zaramela@email.com', '(21) 94567-8909', 'Macaé', 'RJ', '2025-01-20'), (75, 'Alberto
+Avelar', '11223344558', 'alberto.avelar@email.com', '(31) 95678-9010', 'Santa Luzia', 'MG',
+'2025-01-25'), (76, 'Bruna Borba', '22334455669', 'bruna.borba@email.com', '(41) 96789-0121',
+'Apucarana', 'PR', '2025-02-01'), (77, 'César Cordeiro', '33445566770',
+'cesar.cordeiro@email.com', '(51) 97890-1232', 'Uruguaiana', 'RS', '2025-02-05'), (78, 'Daiane
+Dorneles', '44556677881', 'daiane.dorneles@email.com', '(61) 98901-2343', 'Águas Lindas de
+Goiás', 'GO', '2025-02-10'), (79, 'Elias Escobar', '55667788992', 'elias.escobar@email.com',
+'(71) 99012-3454', 'Alagoinhas', 'BA', '2025-02-15'), (80, 'Fernanda Furtado', '66778899003',
+'fernanda.furtado@email.com', '(81) 90123-4565', 'Abreu e Lima', 'PE', '2025-02-20'), (81,
+'Geovane Guterres', '77889900114', 'geovane.guterres@email.com', '(91) 91234-5677',
+'Cametá', 'PA', '2025-02-25'), (82, 'Heloísa Heringer', '88990011225',
+'heloisa.heringer@email.com', '(11) 92345-6788', 'Piracicaba', 'SP', '2025-03-01'), (83, 'Iuri
+Ibarra', '99001122336', 'iuri.ibarra@email.com', '(21) 93456-7899', 'Angra dos Reis', 'RJ', '2025
+03-05'), (84, 'Jeferson Jardim', '12345678914', 'jeferson.jardim@email.com', '(31) 94567-8900',
+'Ipatinga', 'MG', '2025-03-10'), (85, 'Katia Kopp', '23456789025', 'katia.kopp@email.com', '(41)
+95678-9011', 'São Francisco', 'PR', '2024-03-15'), (86, 'Leandro Lemos', '34567890136',
+'leandro.lemos@email.com', '(51) 96789-0122', 'Gramado', 'RS', '2025-03-20'), (87, 'Márcia
+Menezes', '45678901247', 'marcia.menezes@email.com', '(61) 97890-1233', 'Formosa', 'GO',
+'2025-03-25'), (88, 'Nelson Nogueira', '56789012358', 'nelson.nogueira@email.com', '(71)
+98901-2344', 'Teixeira de Freitas', 'BA', '2025-04-01'), (89, 'Oriana Oliveira', '67890123469',
+'oriana.oliveira@email.com', '(81) 99012-3455', 'Cabo de Santo Agostinho', 'PE', '2025-04-05'),
+(90, 'Pedro Pacheco', '78901234570', 'pedro.pacheco@email.com', '(91) 90123-4566', 'Altamira',
+'PA', '2025-04-10'), (91, 'Quiteria Queiroz', '89012345681', 'quiteria.queiroz@email.com', '(11)
+91234-5678', 'Bauru', 'SP', '2025-04-15'), (92, 'Rodrigo Rangel', '90123456792',
+'rodrigo.rangel@email.com', '(21) 92345-6789', 'Nova Friburgo', 'RJ', '2025-04-20'), (93, 'Sílvia
+Saldanha', '11223344559', 'silvia.saldanha@email.com', '(31) 93456-7890', 'Teófilo Otoni', 'MG',
+'2025-04-25'), (94, 'Tales Teodoro', '22334455660', 'tales.teodoro@email.com', '(41) 94567
+8901', 'Pato Branco', 'PR', '2025-05-01'), (95, 'Umberto Ulisses', '33445566771',
+'umberto.ulisses@email.com', '(51) 95678-9012', 'Bagé', 'RS', '2025-05-05'), (96, 'Vera Vilar',
+'44556677882', 'vera.vilar@email.com', '(61) 96789-0123', 'Cristalina', 'GO', '2025-05-10'), (97,
+'Wilson Watanabe', '55667788993', 'wilson.watanabe@email.com', '(71) 97890-1234',
+'Eunápolis', 'BA', '2025-05-15'), (98, 'Xênia Xerfan', '66778899004', 'xenia.xerfan@email.com',
+'(81) 98901-2345', 'Igarassu', 'PE', '2025-05-20'), (99, 'Yuri Yukimura', '77889900115',
+'yuri.yukimura@email.com', '(91) 99012-3456', 'Tailândia', 'PA', '2025-05-25'), (100, 'Zacarias
+Zampieri', '88990011226', 'zacarias.zampieri@email.com', '(11) 90123-4567', 'Santo André', 'SP',
+'2025-05-30'); -- Copiando estrutura para tabela banco_dados_populado.formas_pagamentos
+CREATE TABLE IF NOT EXISTS `formas_pagamentos` ( `id_forma_pagamento` int(11) NOT
+NULL AUTO_INCREMENT, `nome` varchar(50) NOT NULL, PRIMARY KEY
+(`id_forma_pagamento`), UNIQUE KEY `nome` (`nome`) ) ENGINE=InnoDB
+AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci; -- Copiando
+dados para a tabela banco_dados_populado.formas_pagamentos: ~4 rows (aproximadamente)
+REPLACE INTO `formas_pagamentos` (`id_forma_pagamento`, `nome`) VALUES (1, 'Espécie'),
+(2, 'PIX'), (3, 'Cartão de Crédito'), (4, 'Cartão de Débito'); -- Copiando estrutura para tabela
+banco_dados_populado.fornecedores CREATE TABLE IF NOT EXISTS `fornecedores` (
+`id_fornecedor` int(11) NOT NULL AUTO_INCREMENT, `nome` varchar(100) NOT NULL, `cnpj`
+char(14) NOT NULL, `email` varchar(100) NOT NULL, `telefone` varchar(20) DEFAULT NULL,
+`cidade` varchar(80) NOT NULL, `estado` char(2) NOT NULL, `data_cadastro` date NOT NULL,
+PRIMARY KEY (`id_fornecedor`), UNIQUE KEY `cnpj` (`cnpj`), UNIQUE KEY `email` (`email`) )
+ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1
+COLLATE=latin1_swedish_ci; -- Copiando dados para a tabela
+banco_dados_populado.fornecedores: ~50 rows (aproximadamente) REPLACE INTO
+`fornecedores` (`id_fornecedor`, `nome`, `cnpj`, `email`, `telefone`, `cidade`, `estado`,
+`data_cadastro`) VALUES (1, 'Distribuidora Alimentar Sul', '12345678000101',
+'contato@distribuidorasul.com.br', '(51) 91234-5678', 'Porto Alegre', 'RS', '2024-01-10'), (2,
+'Tecnologia e Informática Norte', '23456789000102', 'vendas@tecnologianorte.com.br', '(91)
+92345-6789', 'Belém', 'PA', '2024-01-15'), (3, 'Metalúrgica Central', '34567890000103',
+'comercial@metalurgicacentral.com.br', '(62) 93456-7890', 'Goiânia', 'GO', '2024-01-20'), (4,
+'Materiais de Construção Leste', '45678901000104', 'atendimento@mcleste.com.br', '(21)
+94567-8901', 'Rio de Janeiro', 'RJ', '2024-01-25'), (5, 'Produtos Químicos Paulista',
+'56789012000105', 'suporte@quimicospaulista.com.br', '(11) 95678-9012', 'São Paulo', 'SP',
+'2024-02-01'), (6, 'Móveis Planejados Mineira', '67890123000106',
+'contato@moveismineira.com.br', '(31) 96789-0123', 'Belo Horizonte', 'MG', '2024-02-05'), (7,
+'Peças Automotivas Gaúcha', '78901234000107', 'vendas@pecasgaucha.com.br', '(51) 97890
+1234', 'Caxias do Sul', 'RS', '2024-02-10'), (8, 'Eletrodomésticos Brasileiros', '89012345000108',
+'comercial@eletrobrasileiros.com.br', '(41) 98901-2345', 'Curitiba', 'PR', '2024-02-15'), (9, 'Têxtil
+Nordestina', '90123456000109', 'faleconosco@textilnordestina.com.br', '(81) 99012-3456',
+'Recife', 'PE', '2024-02-20'), (10, 'Embalagens Sustentáveis', '01234567000110',
+'contato@embalagensustentaveis.com.br', '(71) 90123-4567', 'Salvador', 'BA', '2024-02-25'), (11,
+'Ferramentas Industriais Sul', '12345678000211', 'atendimento@ferramentassul.com.br', '(51)
+91234-5679', 'Novo Hamburgo', 'RS', '2024-03-01'), (12, 'Cosméticos Naturais Amazônia',
+'23456789000212', 'vendas@cosmeticosamazonia.com.br', '(92) 92345-6790', 'Manaus', 'AM',
+'2024-03-05'), (13, 'Papelaria Escolar Central', '34567890000213',
+'contato@papelariacentral.com.br', '(61) 93456-7891', 'Brasília', 'DF', '2024-03-10'), (14,
+'Bebidas e Refrigerantes Leste', '45678901000214', 'comercial@bebidasleste.com.br', '(21)
+94567-8902', 'Niterói', 'RJ', '2024-03-15'), (15, 'Tecidos e Estofados Paulista',
+'56789012000215', 'suporte@tecidospaulista.com.br', '(11) 95678-9013', 'São Bernardo do
+Campo', 'SP', '2024-03-20'), (16, 'Produtos de Limpeza Mineiro', '67890123000216',
+'atendimento@limpezamineiro.com.br', '(31) 96789-0124', 'Contagem', 'MG', '2024-03-25'), (17,
+'Iluminação e Lâmpadas Brasil', '78901234000217', 'vendas@iluminacaobrasil.com.br', '(41)
+97890-1235', 'Londrina', 'PR', '2024-04-01'), (18, 'Ferragens e Metais Gaúchos',
+'89012345000218', 'contato@ferragensgauchos.com.br', '(51) 98901-2346', 'Pelotas', 'RS',
+'2024-04-05'), (19, 'Material Hospitalar Nordeste', '90123456000219',
+'comercial@hospitalarnordeste.com.br', '(81) 99012-3457', 'Olinda', 'PE', '2024-04-10'), (20,
+'Alimentos Industrializados BA', '01234567000220', 'faleconosco@alimentosba.com.br', '(71)
+90123-4568', 'Feira de Santana', 'BA', '2024-04-15'), (21, 'Plásticos e Derivados Sul',
+'12345678000321', 'vendas@plasticossul.com.br', '(51) 91234-5680', 'Canoas', 'RS', '2024-04
+20'), (22, 'Software e Sistemas GO', '23456789000322', 'contato@softwaresgo.com.br', '(62)
+92345-6791', 'Aparecida de Goiânia', 'GO', '2024-04-25'), (23, 'Calçados e Artefatos MG',
+'34567890000323', 'comercial@calcadosmg.com.br', '(31) 93456-7892', 'Juiz de Fora', 'MG',
+'2024-05-01'), (24, 'Máquinas Agrícolas PR', '45678901000324',
+'suporte@maquinasagricolaspr.com.br', '(41) 94567-8903', 'Maringá', 'PR', '2024-05-05'), (25,
+'Vidros e Espelhos SP', '56789012000325', 'atendimento@vidrossepelhossp.com.br', '(11)
+95678-9014', 'Campinas', 'SP', '2024-05-10'), (26, 'Tintas e Vernizes RJ', '67890123000326',
+'vendas@tintasrj.com.br', '(21) 96789-0125', 'Duque de Caxias', 'RJ', '2024-05-15'), (27,
+'Componentes Eletrônicos RS', '78901234000327', 'contato@componenteletronicos.com.br',
+'(51) 97890-1236', 'São Leopoldo', 'RS', '2024-05-20'), (28, 'Materiais Escritório DF',
+'89012345000328', 'comercial@escritoriodf.com.br', '(61) 98901-2347', 'Taguatinga', 'DF', '2024
+05-25'), (29, 'Brinquedos e Jogos PE', '90123456000329', 'faleconosco@brinquedospe.com.br',
+'(81) 99012-3458', 'Jaboatão dos Guararapes', 'PE', '2024-06-01'), (30, 'Moveis e Decoração
+PA', '01234567000330', 'vendas@moveispa.com.br', '(91) 90123-4569', 'Ananindeua', 'PA',
+'2024-06-05'), (31, 'Frangos e Derivados SC', '12345678000431',
+'atendimento@frangossc.com.br', '(47) 91234-5681', 'Joinville', 'SC', '2024-06-10'), (32, 'Gráfica
+Rápida MS', '23456789000432', 'contato@graficams.com.br', '(67) 92345-6792', 'Campo
+Grande', 'MS', '2024-06-15'), (33, 'Equipamentos de Segurança BA', '34567890000433',
+'comercial@segurancaba.com.br', '(71) 93456-7893', 'Vitória da Conquista', 'BA', '2024-06-20'),
+(34, 'Doces e Conservas GO', '45678901000434', 'suporte@docesgo.com.br', '(62) 94567
+8904', 'Anápolis', 'GO', '2024-06-25'), (35, 'Ar Condicionado e Refrigeração SP',
+'56789012000435', 'vendas@arcondicionadosp.com.br', '(11) 95678-9015', 'Santo André', 'SP',
+'2024-07-01'), (36, 'Embalagens Plásticas RJ', '67890123000436',
+'contato@embalagensplasticasrj.com.br', '(21) 96789-0126', 'Nova Iguaçu', 'RJ', '2024-07-05'),
+(37, 'Ferramentas Elétricas PR', '78901234000437', 'comercial@ferramentaseletricaspr.com.br',
+'(41) 97890-1237', 'São José dos Pinhais', 'PR', '2024-07-10'), (38, 'Papel e Celulose MG',
+'89012345000438', 'faleconosco@papelecelulosemg.com.br', '(31) 98901-2348', 'Ubirlandia',
+'MG', '2024-07-15'), (39, 'Produtos Orgânicos RS', '90123456000439',
+'vendas@organicosrs.com.br', '(51) 99012-3459', 'Santa Maria', 'RS', '2024-07-20'), (40,
+'Confecções e Uniformes PE', '01234567000440', 'atendimento@confeccoespe.com.br', '(81)
+90123-4570', 'Caruaru', 'PE', '2024-07-25'), (41, 'Construção Civil BR', '12345678000541',
+'contato@construcaobr.com.br', '(11) 91234-5682', 'São Paulo', 'SP', '2024-08-01'), (42,
+'Distribuidora de Gás CE', '23456789000542', 'comercial@gasce.com.br', '(85) 92345-6793',
+'Fortaleza', 'CE', '2024-08-05'), (43, 'Hidráulica e Solda RN', '34567890000543',
+'suporte@hidraulicarna.com.br', '(84) 93456-7894', 'Natal', 'RN', '2024-08-10'), (44, 'Material
+Elétrico PB', '45678901000544', 'vendas@materialeletricopb.com.br', '(83) 94567-8905', 'João
+Pessoa', 'PB', '2024-08-15'), (45, 'Serviços Gráficos SE', '56789012000545',
+'contato@graficosse.com.br', '(79) 95678-9016', 'Aracaju', 'SE', '2024-08-20'), (46, 'Produtos
+para Animais AL', '67890123000546', 'comercial@animaisal.com.br', '(82) 96789-0127',
+'Maceió', 'AL', '2024-08-25'), (47, 'Jardinagem e Paisagismo PI', '78901234000547',
+'faleconosco@jardinagempiaui.com.br', '(86) 97890-1238', 'Teresina', 'PI', '2024-09-01'), (48,
+'Utensílios Domésticos RO', '89012345000548', 'vendas@utensilioro.com.br', '(69) 98901-2349',
+'Porto Velho', 'RO', '2024-09-05'), (49, 'Bombas e Compressores MA', '90123456000549',
+'atendimento@bombasma.com.br', '(98) 99012-3460', 'São Luís', 'MA', '2024-09-10'), (50,
+'Soluções em Logística TO', '01234567000550', 'contato@logisticato.com.br', '(63) 90123-4571',
+'Palmas', 'TO', '2024-09-15'); -- Copiando estrutura para tabela
+banco_dados_populado.itens_vendas CREATE TABLE IF NOT EXISTS `itens_vendas` (
+`id_venda` int(11) NOT NULL, `id_item` int(11) NOT NULL, `id_produto` int(11) NOT NULL,
+`preco` decimal(10,2) NOT NULL, `quantidade` int(11) NOT NULL, `total_item` decimal(10,2)
+NOT NULL, PRIMARY KEY (`id_venda`,`id_item`), KEY `id_produto` (`id_produto`),
+CONSTRAINT `itens_vendas_ibfk_1` FOREIGN KEY (`id_venda`) REFERENCES `vendas`
+(`id_venda`), CONSTRAINT `itens_vendas_ibfk_2` FOREIGN KEY (`id_produto`)
+REFERENCES `produtos` (`id_produto`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+COLLATE=latin1_swedish_ci; -- Copiando dados para a tabela
+banco_dados_populado.itens_vendas: ~439 rows (aproximadamente) REPLACE INTO
+`itens_vendas` (`id_venda`, `id_item`, `id_produto`, `preco`, `quantidade`, `total_item`) VALUES
+(1, 1, 1, 5.99, 2, 11.98), (1, 2, 2, 8.49, 1, 8.49), (1, 3, 4, 12.90, 1, 12.90), (1, 4, 8, 4.99, 3, 14.97),
+(1, 5, 10, 18.90, 1, 18.90), (1, 6, 15, 2.49, 2, 4.99), (2, 1, 5, 6.99, 2, 13.98), (2, 2, 7, 3.89, 3,
+11.67), (2, 3, 11, 24.90, 1, 24.90), (2, 4, 19, 12.90, 1, 12.90), (2, 5, 20, 5.49, 1, 5.49), (3, 1, 51,
+8.49, 4, 33.96), (3, 2, 52, 8.49, 3, 25.47), (3, 3, 60, 79.90, 1, 79.90), (3, 4, 71, 5.49, 2, 10.98), (4,
+1, 13, 3.49, 5, 17.45), (4, 2, 22, 12.90, 1, 12.90), (4, 3, 35, 4.59, 2, 9.18), (4, 4, 42, 9.90, 1,
+9.90), (4, 5, 78, 14.90, 2, 29.80), (4, 6, 81, 5.99, 2, 11.98), (5, 1, 9, 7.49, 1, 7.49), (5, 2, 16, 3.59,
+2, 7.18), (5, 3, 28, 5.90, 1, 5.90), (5, 4, 38, 2.19, 4, 8.76), (5, 5, 45, 2.49, 3, 7.47), (5, 6, 100,
+19.90, 1, 19.90), (6, 1, 91, 899.90, 1, 899.90), (6, 2, 92, 2499.90, 1, 2499.90), (6, 3, 95, 79.90, 2,
+159.80), (7, 1, 6, 4.59, 2, 9.18), (7, 2, 12, 6.59, 1, 6.59), (7, 3, 18, 1.99, 5, 9.95), (7, 4, 24, 4.59,
+2, 9.18), (7, 5, 27, 6.99, 1, 6.99), (7, 6, 30, 29.90, 1, 29.90), (8, 1, 14, 7.99, 1, 7.99), (8, 2, 21,
+11.90, 2, 23.80), (8, 3, 25, 3.29, 3, 9.87), (8, 4, 33, 4.89, 2, 9.78), (8, 5, 47, 1.29, 6, 7.74), (8, 6,
+49, 3.79, 4, 15.16), (9, 1, 61, 29.90, 2, 59.80), (9, 2, 62, 32.90, 1, 32.90), (9, 3, 63, 79.90, 1,
+79.90), (9, 4, 64, 39.90, 1, 39.90), (9, 5, 104, 15.90, 1, 15.90), (10, 1, 17, 4.89, 2, 9.78), (10, 2,
+26, 8.90, 1, 8.90), (10, 3, 31, 7.89, 1, 7.89), (10, 4, 34, 2.19, 4, 8.76), (10, 5, 36, 5.99, 1, 5.99),
+(11, 1, 39, 2.89, 5, 14.45), (11, 2, 40, 2.99, 3, 8.97), (11, 3, 53, 6.49, 2, 12.98), (11, 4, 65, 14.90,
+1, 14.90), (11, 5, 68, 6.49, 2, 12.98), (11, 6, 70, 4.29, 8, 34.32), (12, 1, 43, 5.90, 2, 11.80), (12, 2,
+44, 6.90, 1, 6.90), (12, 3, 54, 7.90, 2, 15.80), (12, 4, 55, 2.99, 4, 11.96), (12, 5, 56, 3.49, 2, 6.98),
+(13, 1, 96, 129.90, 1, 129.90), (13, 2, 97, 189.90, 1, 189.90), (13, 3, 98, 79.90, 1, 79.90), (13, 4,
+99, 89.90, 1, 89.90), (14, 1, 46, 7.49, 1, 7.49), (14, 2, 57, 1.99, 6, 11.94), (14, 3, 58, 3.49, 2,
+6.98), (14, 4, 59, 3.49, 1, 3.49), (14, 5, 66, 2.99, 3, 8.97), (14, 6, 69, 8.90, 2, 17.80), (15, 1, 29,
+2.49, 10, 24.90), (15, 2, 37, 3.29, 5, 16.45), (15, 3, 48, 8.90, 1, 8.90), (15, 4, 50, 6.49, 2, 12.98),
+(15, 5, 77, 19.90, 1, 19.90), (16, 1, 100, 19.90, 2, 39.80), (16, 2, 101, 89.90, 1, 89.90), (16, 3,
+110, 49.90, 2, 99.80), (16, 4, 150, 15.90, 1, 15.90), (17, 1, 23, 3.99, 2, 7.98), (17, 2, 32, 7.99, 1,
+7.99), (17, 3, 41, 5.49, 1, 5.49), (17, 4, 63, 79.90, 1, 79.90), (18, 1, 102, 29.90, 1, 29.90), (18, 2,
+103, 79.90, 1, 79.90), (18, 3, 104, 15.90, 2, 31.80), (18, 4, 105, 24.90, 2, 49.80), (18, 5, 106,
+9.90, 2, 19.80), (19, 1, 7, 3.89, 4, 15.56), (19, 2, 11, 24.90, 1, 24.90), (19, 3, 15, 2.49, 3, 7.47),
+(19, 4, 19, 12.90, 1, 12.90), (20, 1, 2, 8.49, 2, 16.98), (20, 2, 4, 12.90, 1, 12.90), (20, 3, 6, 4.59,
+3, 13.77), (20, 4, 9, 7.49, 1, 7.49), (20, 5, 12, 6.59, 2, 13.18), (21, 1, 117, 19.90, 2, 39.80), (21, 2,
+118, 15.90, 1, 15.90), (21, 3, 119, 79.90, 1, 79.90), (21, 4, 120, 12.90, 1, 12.90), (22, 1, 1, 5.99,
+3, 17.97), (22, 2, 5, 6.99, 2, 13.98), (22, 3, 10, 18.90, 1, 18.90), (22, 4, 14, 7.99, 2, 15.98), (22,
+5, 18, 1.99, 4, 7.96), (23, 1, 20, 5.49, 2, 10.98), (23, 2, 25, 3.29, 4, 13.16), (23, 3, 30, 29.90, 1,
+29.90), (23, 4, 34, 8.90, 2, 17.80), (23, 5, 40, 9.90, 3, 29.70), (24, 1, 42, 9.90, 1, 9.90), (24, 2,
+45, 2.49, 5, 12.45), (24, 3, 49, 3.79, 3, 11.37), (24, 4, 52, 8.49, 2, 16.98), (24, 5, 55, 2.99, 4,
+11.96), (24, 6, 58, 3.49, 2, 6.98), (25, 1, 60, 79.90, 1, 79.90), (25, 2, 61, 29.90, 1, 29.90), (25, 3,
+65, 14.90, 1, 14.90), (25, 4, 68, 124.90, 1, 124.90), (26, 1, 70, 4.29, 6, 25.74), (26, 2, 75, 9.90, 2,
+19.80), (26, 3, 80, 7.49, 3, 22.47), (26, 4, 85, 15.90, 2, 31.80), (26, 5, 90, 8.49, 4, 33.96), (27, 1,
+92, 2499.90, 1, 2499.90), (27, 2, 93, 1799.90, 1, 1799.90), (28, 1, 13, 3.49, 5, 17.45), (28, 2, 16,
+3.59, 3, 10.77), (28, 3, 21, 11.90, 1, 11.90), (28, 4, 24, 4.59, 2, 9.18), (28, 5, 27, 6.99, 1, 6.99),
+(29, 1, 31, 7.89, 2, 15.78), (29, 2, 33, 4.89, 3, 14.67), (29, 3, 36, 5.99, 2, 11.98), (29, 4, 38, 2.19,
+6, 13.14), (29, 5, 41, 5.49, 4, 21.96), (30, 1, 44, 6.90, 2, 13.80), (30, 2, 47, 1.29, 10, 12.90), (30,
+3, 50, 6.49, 3, 19.47), (30, 4, 115, 59.90, 1, 59.90), (30, 5, 116, 149.90, 1, 149.90), (31, 1, 3,
+4.79, 2, 9.58), (31, 2, 8, 4.99, 3, 14.97), (31, 3, 11, 24.90, 1, 24.90), (31, 4, 17, 4.89, 2, 9.78),
+(31, 5, 22, 12.90, 1, 12.90), (32, 1, 26, 8.90, 2, 17.80), (32, 2, 28, 5.90, 3, 17.70), (32, 3, 32,
+7.99, 2, 15.98), (32, 4, 35, 4.59, 4, 18.36), (32, 5, 39, 2.89, 6, 17.34), (33, 1, 43, 5.90, 1, 5.90),
+(33, 2, 46, 7.49, 1, 7.49), (33, 3, 48, 8.90, 1, 8.90), (33, 4, 51, 8.49, 2, 16.98), (33, 5, 53, 6.49, 1,
+6.49), (34, 1, 95, 79.90, 1, 79.90), (34, 2, 96, 129.90, 1, 129.90), (34, 3, 98, 79.90, 1, 79.90),
+(34, 4, 99, 89.90, 1, 89.90), (35, 1, 54, 7.90, 2, 15.80), (35, 2, 56, 3.49, 3, 10.47), (35, 3, 59,
+3.49, 4, 13.96), (35, 4, 62, 32.90, 1, 32.90), (35, 5, 64, 39.90, 1, 39.90), (36, 1, 66, 2.99, 4,
+11.96), (36, 2, 71, 5.49, 6, 32.94), (36, 3, 74, 12.90, 2, 25.80), (36, 4, 77, 19.90, 1, 19.90), (36, 5,
+79, 15.90, 2, 31.80), (37, 1, 1, 5.99, 2, 11.98), (37, 2, 4, 12.90, 1, 12.90), (37, 3, 7, 3.89, 3,
+11.67), (37, 4, 9, 7.49, 2, 14.98), (37, 5, 10, 18.90, 1, 18.90), (38, 1, 12, 6.59, 2, 13.18), (38, 2,
+14, 7.99, 3, 23.97), (38, 3, 15, 2.49, 5, 12.45), (38, 4, 19, 12.90, 2, 25.80), (38, 5, 20, 5.49, 4,
+21.96), (39, 1, 23, 3.99, 3, 11.97), (39, 2, 25, 3.29, 5, 16.45), (39, 3, 29, 2.49, 8, 19.92), (39, 4,
+30, 29.90, 1, 29.90), (39, 5, 34, 8.90, 1, 8.90), (40, 1, 2, 8.49, 1, 8.49), (40, 2, 5, 6.99, 2, 13.98),
+(40, 3, 11, 24.90, 1, 24.90), (40, 4, 13, 3.49, 4, 13.96), (41, 1, 125, 2.49, 4, 9.96), (41, 2, 130,
+19.90, 2, 39.80), (41, 3, 132, 79.90, 1, 79.90), (41, 4, 135, 24.90, 2, 49.80), (41, 5, 140, 49.90, 1,
+49.90), (42, 1, 100, 19.90, 2, 39.80), (42, 2, 102, 29.90, 1, 29.90), (42, 3, 105, 24.90, 1, 24.90),
+(42, 4, 107, 18.90, 2, 37.80), (42, 5, 108, 29.90, 1, 29.90), (43, 1, 52, 8.49, 3, 25.47), (43, 2, 55,
+2.99, 5, 14.95), (43, 3, 58, 3.49, 4, 13.96), (43, 4, 61, 29.90, 1, 29.90), (43, 5, 63, 79.90, 1,
+79.90), (44, 1, 110, 49.90, 2, 99.80), (44, 2, 112, 79.90, 1, 79.90), (44, 3, 114, 15.90, 4, 63.60),
+(44, 4, 115, 59.90, 1, 59.90), (44, 5, 116, 149.90, 1, 149.90), (45, 1, 16, 3.59, 3, 10.77), (45, 2,
+21, 11.90, 1, 11.90), (45, 3, 26, 8.90, 2, 17.80), (45, 4, 28, 5.90, 1, 5.90), (45, 5, 31, 7.89, 2,
+15.78), (46, 1, 33, 4.89, 5, 24.45), (46, 2, 36, 5.99, 3, 17.97), (46, 3, 39, 2.89, 4, 11.56), (46, 4,
+41, 5.49, 6, 32.94), (46, 5, 43, 5.90, 2, 11.80), (46, 6, 45, 2.49, 10, 24.90), (47, 1, 2, 8.49, 2,
+16.98), (47, 2, 5, 6.99, 3, 20.97), (47, 3, 8, 4.99, 5, 24.95), (47, 4, 10, 18.90, 1, 18.90), (47, 5,
+12, 6.59, 2, 13.18), (48, 1, 65, 14.90, 1, 14.90), (48, 2, 67, 8.90, 2, 17.80), (48, 3, 69, 8.90, 1,
+8.90), (48, 4, 70, 4.29, 5, 21.45), (48, 5, 72, 2.69, 6, 16.14), (49, 1, 73, 5.49, 3, 16.47), (49, 2,
+75, 9.90, 2, 19.80), (49, 3, 78, 14.90, 2, 29.80), (49, 4, 80, 7.49, 4, 29.96), (49, 5, 82, 11.90, 5,
+59.50), (50, 1, 4, 12.90, 1, 12.90), (50, 2, 7, 3.89, 4, 15.56), (50, 3, 9, 7.49, 2, 14.98), (50, 4, 11,
+24.90, 1, 24.90), (50, 5, 14, 7.99, 1, 7.99), (51, 1, 17, 4.89, 2, 9.78), (51, 2, 19, 12.90, 1, 12.90),
+(51, 3, 22, 12.90, 2, 25.80), (51, 4, 24, 4.59, 3, 13.77), (51, 5, 27, 6.99, 4, 27.96), (52, 1, 85,
+15.90, 2, 31.80), (52, 2, 87, 12.90, 1, 12.90), (52, 3, 89, 5.49, 5, 27.45), (52, 4, 90, 8.49, 3,
+25.47), (52, 5, 91, 899.90, 1, 899.90), (53, 1, 29, 2.49, 5, 12.45), (53, 2, 32, 7.99, 2, 15.98), (53,
+3, 34, 8.90, 1, 8.90), (53, 4, 38, 2.19, 4, 8.76), (53, 5, 40, 9.90, 2, 19.80), (54, 1, 118, 15.90, 2,
+31.80), (54, 2, 120, 12.90, 3, 38.70), (54, 3, 121, 24.90, 1, 24.90), (54, 4, 122, 29.90, 2, 59.80),
+(55, 1, 44, 6.90, 2, 13.80), (55, 2, 46, 7.49, 1, 7.49), (55, 3, 48, 8.90, 2, 17.80), (55, 4, 49, 3.79,
+4, 15.16), (55, 5, 51, 8.49, 3, 25.47), (56, 1, 53, 6.49, 2, 12.98), (56, 2, 56, 3.49, 3, 10.47), (56,
+3, 59, 3.49, 2, 6.98), (56, 4, 60, 79.90, 1, 79.90), (57, 1, 62, 32.90, 1, 32.90), (57, 2, 64, 39.90, 1,
+39.90), (57, 3, 66, 2.99, 4, 11.96), (57, 4, 68, 6.49, 3, 19.47), (57, 5, 71, 5.49, 2, 10.98), (58, 1,
+125, 2.49, 10, 24.90), (58, 2, 127, 7.90, 4, 31.60), (58, 3, 130, 19.90, 2, 39.80), (58, 4, 132,
+79.90, 1, 79.90), (59, 1, 1, 5.99, 3, 17.97), (59, 2, 3, 4.79, 4, 19.16), (59, 3, 6, 4.59, 2, 9.18), (59,
+4, 8, 4.99, 3, 14.97), (59, 5, 10, 18.90, 1, 18.90), (60, 1, 135, 24.90, 2, 49.80), (60, 2, 137, 49.90,
+1, 49.90), (60, 3, 140, 49.90, 1, 49.90), (60, 4, 141, 39.90, 1, 39.90), (60, 5, 142, 29.90, 1,
+29.90), (61, 1, 13, 3.49, 5, 17.45), (61, 2, 15, 2.49, 8, 19.92), (61, 3, 18, 1.99, 6, 11.94), (61, 4,
+20, 5.49, 3, 16.47), (61, 5, 23, 3.99, 4, 15.96), (62, 1, 25, 3.29, 5, 16.45), (62, 2, 28, 5.90, 2,
+11.80), (62, 3, 30, 29.90, 1, 29.90), (62, 4, 33, 4.89, 2, 9.78), (63, 1, 145, 12.90, 2, 25.80), (63, 2,
+147, 24.90, 1, 24.90), (63, 3, 148, 34.90, 2, 69.80), (63, 4, 150, 15.90, 4, 63.60), (64, 1, 35, 4.59,
+3, 13.77), (64, 2, 37, 3.29, 5, 16.45), (64, 3, 39, 2.89, 4, 11.56), (64, 4, 41, 5.49, 2, 10.98), (65, 1,
+152, 6.49, 3, 19.47), (65, 2, 154, 19.90, 2, 39.80), (65, 3, 156, 21.90, 1, 21.90), (65, 4, 158,
+24.90, 2, 49.80), (66, 1, 42, 9.90, 1, 9.90), (66, 2, 43, 5.90, 2, 11.80), (66, 3, 45, 2.49, 6, 14.94),
+(66, 4, 47, 1.29, 10, 12.90), (66, 5, 50, 6.49, 3, 19.47), (66, 6, 52, 8.49, 2, 16.98), (67, 1, 160,
+29.90, 2, 59.80), (67, 2, 162, 49.90, 1, 49.90), (67, 3, 165, 14.90, 4, 59.60), (67, 4, 168, 24.90, 2,
+49.80), (68, 1, 2, 8.49, 2, 16.98), (68, 2, 4, 12.90, 1, 12.90), (68, 3, 7, 3.89, 4, 15.56), (68, 4, 9,
+7.49, 2, 14.98), (68, 5, 11, 24.90, 1, 24.90), (69, 1, 170, 12.90, 3, 38.70), (69, 2, 172, 24.90, 2,
+49.80), (69, 3, 174, 15.90, 2, 31.80), (69, 4, 175, 29.90, 1, 29.90), (70, 1, 14, 7.99, 1, 7.99), (70,
+2, 17, 4.89, 3, 14.67), (70, 3, 19, 12.90, 1, 12.90), (70, 4, 21, 11.90, 2, 23.80), (71, 1, 178, 19.90,
+2, 39.80), (71, 2, 180, 39.90, 1, 39.90), (71, 3, 182, 12.90, 3, 38.70), (72, 1, 22, 12.90, 2, 25.80),
+(72, 2, 24, 4.59, 3, 13.77), (72, 3, 26, 8.90, 1, 8.90), (72, 4, 29, 2.49, 6, 14.94), (72, 5, 31, 7.89,
+2, 15.78), (73, 1, 185, 49.90, 2, 99.80), (73, 2, 188, 34.90, 1, 34.90), (73, 3, 190, 29.90, 2,
+59.80), (74, 1, 32, 7.99, 2, 15.98), (74, 2, 34, 8.90, 1, 8.90), (74, 3, 36, 5.99, 3, 17.97), (74, 4,
+38, 2.19, 5, 10.95), (74, 5, 40, 9.90, 1, 9.90), (75, 1, 192, 12.90, 3, 38.70), (75, 2, 194, 24.90, 2,
+49.80), (75, 3, 196, 29.90, 1, 29.90), (75, 4, 198, 19.90, 2, 39.80), (76, 1, 44, 6.90, 2, 13.80),
+(76, 2, 46, 7.49, 1, 7.49), (76, 3, 49, 3.79, 4, 15.16), (76, 4, 51, 8.49, 2, 16.98), (77, 1, 200,
+29.90, 2, 59.80), (77, 2, 202, 49.90, 1, 49.90), (77, 3, 205, 15.90, 4, 63.60), (77, 4, 208, 32.90, 2,
+65.80), (78, 1, 53, 6.49, 2, 12.98), (78, 2, 55, 2.99, 5, 14.95), (78, 3, 57, 1.99, 8, 15.92), (78, 4,
+58, 3.49, 4, 13.96), (78, 5, 60, 79.90, 1, 79.90), (79, 1, 210, 19.90, 2, 39.80), (79, 2, 212, 24.90,
+1, 24.90), (79, 3, 214, 12.90, 3, 38.70), (80, 1, 62, 32.90, 1, 32.90), (80, 2, 64, 39.90, 1, 39.90),
+(80, 3, 65, 14.90, 2, 29.80), (80, 4, 67, 8.90, 2, 17.80), (81, 1, 1, 5.99, 3, 17.97), (81, 2, 3, 4.79,
+2, 9.58), (81, 3, 5, 6.99, 2, 13.98), (81, 4, 7, 3.89, 3, 11.67), (81, 5, 9, 7.49, 2, 14.98), (82, 1, 220,
+49.90, 1, 49.90), (82, 2, 222, 79.90, 1, 79.90), (82, 3, 225, 24.90, 2, 49.80), (82, 4, 228, 29.90, 1,
+29.90), (83, 1, 11, 24.90, 1, 24.90), (83, 2, 13, 3.49, 3, 10.47), (83, 3, 15, 2.49, 4, 9.96), (83, 4,
+17, 4.89, 2, 9.78), (84, 1, 230, 49.90, 2, 99.80), (84, 2, 232, 39.90, 1, 39.90), (84, 3, 235, 89.90,
+1, 89.90), (84, 4, 15, 34.90, 1, 34.90), (85, 1, 19, 12.90, 2, 25.80), (85, 2, 21, 11.90, 1, 11.90),
+(85, 3, 23, 3.99, 3, 11.97), (85, 4, 25, 3.29, 4, 13.16), (85, 5, 27, 6.99, 2, 13.98), (86, 1, 1, 29.90,
+2, 59.80), (86, 2, 2, 49.90, 1, 49.90), (86, 3, 3, 15.90, 3, 47.70), (87, 1, 29, 2.49, 5, 12.45), (87,
+2, 31, 7.89, 2, 15.78), (87, 3, 33, 4.89, 3, 14.67), (87, 4, 35, 4.59, 4, 18.36), (87, 5, 37, 3.29, 3,
+9.87), (88, 1, 10, 149.90, 1, 149.90), (88, 2, 12, 89.90, 1, 89.90), (88, 3, 5, 39.90, 2, 79.80), (88,
+4, 7, 59.90, 1, 59.90), (89, 1, 39, 2.89, 5, 14.45), (89, 2, 41, 5.49, 3, 16.47), (89, 3, 43, 5.90, 2,
+11.80), (89, 4, 45, 2.49, 6, 14.94), (91, 1, 47, 1.29, 8, 10.32), (91, 2, 49, 3.79, 4, 15.16), (91, 3,
+51, 8.49, 2, 16.98), (91, 4, 53, 6.49, 2, 12.98), (93, 1, 55, 2.99, 6, 17.94), (93, 2, 57, 1.99, 8,
+15.92), (93, 3, 59, 3.49, 5, 17.45), (93, 4, 61, 29.90, 2, 59.80), (93, 5, 63, 79.90, 1, 79.90), (95,
+1, 65, 14.90, 1, 14.90), (95, 2, 67, 8.90, 2, 17.80), (95, 3, 69, 8.90, 2, 17.80), (95, 4, 71, 5.49, 3,
+16.47), (97, 1, 73, 5.49, 2, 10.98), (97, 2, 75, 9.90, 1, 9.90), (97, 3, 77, 19.90, 1, 19.90), (97, 4,
+79, 15.90, 1, 15.90), (98, 1, 81, 5.99, 4, 23.96), (98, 2, 83, 12.90, 2, 25.80), (98, 3, 85, 15.90, 2,
+31.80), (98, 4, 87, 12.90, 3, 38.70), (100, 1, 89, 5.49, 3, 16.47), (100, 2, 91, 899.90, 1, 899.90),
+(100, 3, 93, 1799.90, 1, 1799.90), (100, 4, 95, 79.90, 1, 79.90); -- Copiando estrutura para
+tabela banco_dados_populado.pagamentos_vendas CREATE TABLE IF NOT EXISTS
+`pagamentos_vendas` ( `id_venda` int(11) NOT NULL, `id_forma_pagamento` int(11) NOT
+NULL, `valor_pago` decimal(10,2) NOT NULL, PRIMARY KEY
+(`id_venda`,`id_forma_pagamento`), KEY `id_forma_pagamento` (`id_forma_pagamento`),
+CONSTRAINT `pagamentos_vendas_ibfk_1` FOREIGN KEY (`id_venda`) REFERENCES
+`vendas` (`id_venda`), CONSTRAINT `pagamentos_vendas_ibfk_2` FOREIGN KEY
+(`id_forma_pagamento`) REFERENCES `formas_pagamentos` (`id_forma_pagamento`) )
+ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci; -- Copiando dados
+para a tabela banco_dados_populado.pagamentos_vendas: ~95 rows (aproximadamente)
+REPLACE INTO `pagamentos_vendas` (`id_venda`, `id_forma_pagamento`, `valor_pago`)
+VALUES (1, 2, 67.85), (2, 1, 44.65), (3, 3, 129.80), (4, 2, 89.30), (5, 4, 56.75), (6, 3, 247.85), (7,
+1, 43.85), (8, 2, 74.15), (9, 4, 191.90), (10, 3, 37.60), (11, 1, 112.65), (12, 2, 54.70), (13, 3,
+123.40), (14, 4, 49.75), (15, 2, 88.25), (16, 1, 157.70), (17, 3, 31.35), (18, 4, 195.50), (19, 2,
+42.30), (20, 1, 63.20), (21, 3, 88.85), (22, 4, 58.45), (23, 2, 95.20), (24, 1, 72.30), (25, 3, 114.50),
+(26, 4, 122.65), (27, 2, 90.40), (28, 1, 55.35), (29, 3, 78.20), (30, 4, 186.50), (31, 2, 43.45), (32,
+1, 88.90), (33, 3, 32.65), (34, 4, 216.40), (35, 2, 56.80), (36, 1, 105.30), (37, 3, 67.35), (38, 4,
+98.55), (39, 2, 79.20), (40, 1, 41.05), (41, 3, 64.70), (42, 4, 159.85), (43, 2, 87.45), (44, 1,
+335.50), (45, 3, 56.30), (46, 4, 123.40), (47, 2, 94.65), (48, 1, 77.90), (49, 3, 218.70), (50, 4,
+52.75), (51, 2, 89.25), (52, 1, 145.60), (53, 3, 64.85), (54, 4, 151.20), (55, 2, 76.35), (56, 1,
+39.90), (57, 3, 111.90), (58, 4, 228.50), (59, 2, 82.55), (60, 1, 167.45), (61, 3, 95.30), (62, 4,
+58.75), (63, 2, 207.20), (64, 1, 48.25), (65, 3, 133.80), (66, 4, 86.55), (67, 2, 229.70), (68, 1,
+67.90), (69, 3, 174.25), (70, 4, 54.10), (71, 2, 98.95), (72, 1, 76.45), (73, 3, 186.50), (74, 4,
+63.85), (75, 2, 142.75), (76, 1, 55.20), (77, 3, 210.50), (78, 4, 68.90), (79, 2, 95.20), (80, 1,
+124.40), (81, 3, 73.85), (82, 4, 198.90), (83, 2, 56.40), (84, 1, 266.80), (85, 3, 88.35), (86, 4,
+163.50), (87, 2, 71.15), (88, 1, 352.50), (89, 3, 64.45), (91, 2, 57.70), (93, 3, 159.30), (95, 2,
+68.50), (97, 3, 53.25), (98, 4, 132.60), (100, 3, 74.20); -- Copiando estrutura para tabela
+banco_dados_populado.produtos CREATE TABLE IF NOT EXISTS `produtos` ( `id_produto`
+int(11) NOT NULL AUTO_INCREMENT, `nome` varchar(150) NOT NULL, `unidade` varchar(10)
+NOT NULL, `preco_venda` decimal(10,2) NOT NULL, `data_ultima_venda` date DEFAULT
+NULL, `quantidade_estoque` int(11) NOT NULL DEFAULT 0, `data_ultima_compra` date
+DEFAULT NULL, PRIMARY KEY (`id_produto`) ) ENGINE=InnoDB AUTO_INCREMENT=236
+DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci; -- Copiando dados para a tabela
+banco_dados_populado.produtos: ~235 rows (aproximadamente) REPLACE INTO `produtos`
+(`id_produto`, `nome`, `unidade`, `preco_venda`, `data_ultima_venda`, `quantidade_estoque`,
+`data_ultima_compra`) VALUES (1, 'Arroz Branco Tipo 1', 'KG', 5.99, '2025-05-20', 150, '2025
+05-15'), (2, 'Feijão Carioca', 'KG', 8.49, '2025-05-21', 120, '2025-05-14'), (3, 'Açúcar Refinado',
+'KG', 4.79, '2025-05-19', 200, '2025-05-16'), (4, 'Café Torrado Moído', '500G', 12.90, '2025-05
+22', 80, '2025-05-10'), (5, 'Óleo de Soja', 'LT', 6.99, '2025-05-18', 100, '2025-05-12'), (6, 'Farinha
+de Trigo', 'KG', 4.59, '2025-05-17', 130, '2025-05-13'), (7, 'Macarrão Espaguete', '500G', 3.89,
+'2025-05-20', 180, '2025-05-11'), (8, 'Leite UHT Integral', 'LT', 4.99, '2025-05-21', 90, '2025-05
+09'), (9, 'Manteiga Com Sal', '200G', 7.49, '2025-05-16', 60, '2025-05-08'), (10, 'Queijo
+Mussarela', '500G', 18.90, '2025-05-15', 40, '2025-05-07'), (11, 'Presunto Cozido', 'KG', 24.90,
+'2025-05-14', 35, '2025-05-06'), (12, 'Pão de Forma', '400G', 6.59, '2025-05-22', 70, '2025-05
+17'), (13, 'Biscoito Cream Cracker', '200G', 3.49, '2025-05-21', 150, '2025-05-16'), (14, 'Sabão
+em Pó', '500G', 7.99, '2025-05-19', 85, '2025-05-14'), (15, 'Detergente Líquido', '500ML', 2.49,
+'2025-05-18', 200, '2025-05-13'), (16, 'Água Sanitária', 'LT', 3.59, '2025-05-17', 75, '2025-05-12'),
+(17, 'Desinfetante', 'LT', 4.89, '2025-05-20', 65, '2025-05-15'), (18, 'Esponja de Aço', 'UN', 1.99,
+'2025-05-16', 300, '2025-05-10'), (19, 'Papel Higiênico', 'UN', 12.90, '2025-05-22', 110, '2025-05
+18'), (20, 'Sabonete Líquido', '250ML', 5.49, '2025-05-21', 95, '2025-05-17'), (21, 'Shampoo',
+'350ML', 11.90, '2025-05-20', 55, '2025-05-16'), (22, 'Condicionador', '350ML', 12.90, '2025-05
+19', 50, '2025-05-15'), (23, 'Creme Dental', '90G', 3.99, '2025-05-18', 120, '2025-05-14'), (24,
+'Escova de Dentes', 'UN', 4.59, '2025-05-17', 85, '2025-05-13'), (25, 'Fio Dental', 'UN', 3.29,
+'2025-05-16', 70, '2025-05-12'), (26, 'Enxaguante Bucal', '250ML', 8.90, '2025-05-15', 45, '2025
+05-11'), (27, 'Álcool em Gel', '500ML', 6.99, '2025-05-22', 130, '2025-05-19'), (28, 'Máscara
+Cirúrgica', 'PC', 2.49, '2025-05-21', 500, '2025-05-18'), (29, 'Luvas Descartáveis', 'PAR', 5.90,
+'2025-05-20', 200, '2025-05-17'), (30, 'Termômetro Digital', 'UN', 29.90, '2025-05-14', 25, '2025
+05-10'), (31, 'Arroz Integral', 'KG', 7.89, '2025-05-19', 90, '2025-05-15'), (32, 'Feijão Preto', 'KG',
+7.99, '2025-05-20', 110, '2025-05-16'), (33, 'Farinha de Milho', 'KG', 3.99, '2025-05-18', 140,
+'2025-05-14'), (34, 'Polvilho Doce', '500G', 4.89, '2025-05-17', 75, '2025-05-13'), (35, 'Creme de
+Leite', '300G', 4.59, '2025-05-16', 85, '2025-05-12'), (36, 'Leite Condensado', '395G', 5.99, '2025
+05-15', 95, '2025-05-11'), (37, 'Molho de Tomate', '340G', 3.29, '2025-05-14', 120, '2025-05-10'),
+(38, 'Extrato de Tomate', '140G', 2.19, '2025-05-13', 150, '2025-05-09'), (39, 'Ervilha em
+Conserva', '200G', 2.89, '2025-05-12', 80, '2025-05-08'), (40, 'Milho Verde', '200G', 2.99, '2025
+05-11', 85, '2025-05-07'), (41, 'Sardinha em Óleo', '125G', 5.49, '2025-05-10', 60, '2025-05-06'),
+(42, 'Atum Sólido', '170G', 9.90, '2025-05-09', 45, '2025-05-05'), (43, 'Palmito Pupunha', '300G',
+11.90, '2025-05-08', 30, '2025-05-04'), (44, 'Azeitona Verde', '100G', 4.29, '2025-05-07', 55,
+'2025-05-03'), (45, 'Alcaparra', '50G', 6.90, '2025-05-06', 35, '2025-05-02'), (46, 'Fermento
+Químico', '100G', 2.49, '2025-05-22', 110, '2025-05-19'), (47, 'Fermento Biológico', '10G', 1.29,
+'2025-05-21', 180, '2025-05-18'), (48, 'Baunilha Líquida', '100ML', 8.90, '2025-05-20', 40, '2025
+05-17'), (49, 'Coco Ralado', '100G', 3.79, '2025-05-19', 65, '2025-05-16'), (50, 'Chocolate em
+Pó', '200G', 6.49, '2025-05-18', 75, '2025-05-15'), (51, 'Achocolatado', '400G', 7.90, '2025-05-17',
+90, '2025-05-14'), (52, 'Gelatina', '30G', 1.69, '2025-05-16', 130, '2025-05-13'), (53, 'Pudim',
+'100G', 2.49, '2025-05-15', 60, '2025-05-12'), (54, 'Refrigerante Cola', '2LT', 8.49, '2025-05-22',
+200, '2025-05-19'), (55, 'Refrigerante Guaraná', '2LT', 8.49, '2025-05-21', 180, '2025-05-18'),
+(56, 'Suco de Laranja', 'LT', 6.99, '2025-05-20', 95, '2025-05-17'), (57, 'Suco de Uva', 'LT', 7.99,
+'2025-05-19', 85, '2025-05-16'), (58, 'Água Mineral', '500ML', 1.99, '2025-05-18', 300, '2025-05
+15'), (59, 'Cerveja Lager', '350ML', 3.49, '2025-05-21', 400, '2025-05-18'), (60, 'Cerveja Pilsen',
+'350ML', 3.49, '2025-05-20', 380, '2025-05-17'), (61, 'Vinho Tinto', '750ML', 29.90, '2025-05-15',
+50, '2025-05-12'), (62, 'Vinho Branco', '750ML', 32.90, '2025-05-14', 45, '2025-05-11'), (63,
+'Whisky', 'LT', 79.90, '2025-05-10', 30, '2025-05-07'), (64, 'Vodka', 'LT', 39.90, '2025-05-09', 40,
+'2025-05-06'), (65, 'Energético', '250ML', 8.49, '2025-05-18', 100, '2025-05-15'), (66, 'Leite em
+Pó', '400G', 14.90, '2025-05-17', 55, '2025-05-14'), (67, 'Iogurte Natural', '170G', 2.99, '2025-05
+16', 75, '2025-05-13'), (68, 'Requeijão Cremoso', '200G', 6.49, '2025-05-15', 65, '2025-05-12'),
+(69, 'Margarina', '500G', 8.90, '2025-05-14', 80, '2025-05-11'), (70, 'Batata Palha', '100G', 4.29,
+'2025-05-13', 70, '2025-05-10'), (71, 'Batata Frita Snack', '80G', 3.99, '2025-05-12', 90, '2025-05
+09'), (72, 'Salgadinho Queijo', '60G', 2.69, '2025-05-11', 120, '2025-05-08'), (73, 'Amendoim
+Torrado', '200G', 5.49, '2025-05-10', 85, '2025-05-07'), (74, 'Castanha de Caju', '100G', 9.90,
+'2025-05-09', 40, '2025-05-06'), (75, 'Nozes', '100G', 12.90, '2025-05-08', 35, '2025-05-05'), (76,
+'Avelã', '100G', 15.90, '2025-05-07', 25, '2025-05-04'), (77, 'Amêndoas', '100G', 14.90, '2025-05
+06', 30, '2025-05-03'), (78, 'Farinha de Aveia', '500G', 5.99, '2025-05-22', 65, '2025-05-19'), (79,
+'Granola', '300G', 8.49, '2025-05-21', 55, '2025-05-18'), (80, 'Mel Orgânico', '250G', 16.90, '2025
+05-20', 35, '2025-05-17'), (81, 'Geleia de Morango', '250G', 7.49, '2025-05-19', 60, '2025-05-16'),
+(82, 'Geleia de Frutas Vermelhas', '250G', 8.90, '2025-05-18', 45, '2025-05-15'), (83, 'Doce de
+Leite', '200G', 6.59, '2025-05-17', 70, '2025-05-14'), (84, 'Goiabada', '300G', 5.99, '2025-05-16',
+80, '2025-05-13'), (85, 'Marmelada', '300G', 5.49, '2025-05-15', 65, '2025-05-12'), (86, 'Ração
+para Cães', 'KG', 12.90, '2025-05-14', 120, '2025-05-11'), (87, 'Ração para Gatos', 'KG', 14.90,
+'2025-05-13', 100, '2025-05-10'), (88, 'Areia para Gatos', '4KG', 19.90, '2025-05-12', 80, '2025
+05-09'), (89, 'Biscoito para Cães', '200G', 7.49, '2025-05-11', 110, '2025-05-08'), (90, 'Cama Pet',
+'UN', 49.90, '2025-05-05', 25, '2025-05-02'), (91, 'Brinquedo Pet', 'UN', 9.90, '2025-05-10', 150,
+'2025-05-07'), (92, 'Coleira Pet', 'UN', 15.90, '2025-05-09', 90, '2025-05-06'), (93, 'Guia Pet',
+'UN', 18.90, '2025-05-08', 85, '2025-05-05'), (94, 'Peitoral Pet', 'UN', 29.90, '2025-05-07', 60,
+'2025-05-04'), (95, 'Fogão 4 Bocas', 'UN', 899.90, '2025-04-15', 15, '2025-04-10'), (96,
+'Geladeira Frost Free', 'UN', 2499.90, '2025-04-20', 10, '2025-04-15'), (97, 'Lavadora de
+Roupas', 'UN', 1799.90, '2025-04-18', 12, '2025-04-12'), (98, 'Micro-ondas', 'UN', 449.90, '2025
+04-22', 20, '2025-04-18'), (99, 'Liquidificador', 'UN', 129.90, '2025-05-20', 35, '2025-05-17'), (100,
+'Batedeira', 'UN', 189.90, '2025-05-19', 28, '2025-05-16'), (101, 'Ventilador', 'UN', 79.90, '2025
+05-18', 45, '2025-05-15'), (102, 'Ferro de Passar', 'UN', 89.90, '2025-05-17', 32, '2025-05-14'),
+(103, 'Aspirador de Pó', 'UN', 299.90, '2025-05-10', 18, '2025-05-07'), (104, 'TV 32 Polegadas',
+'UN', 1299.90, '2025-04-25', 25, '2025-04-20'), (105, 'TV 43 Polegadas', 'UN', 1899.90, '2025-04
+22', 20, '2025-04-18'), (106, 'Smartphone 128GB', 'UN', 1499.90, '2025-04-28', 50, '2025-04
+25'), (107, 'Fone de Ouvido', 'UN', 89.90, '2025-05-15', 100, '2025-05-12'), (108, 'Carregador
+Portátil', 'UN', 59.90, '2025-05-14', 80, '2025-05-11'), (109, 'Cabo USB', 'UN', 19.90, '2025-05
+13', 150, '2025-05-10'), (110, 'Película de Vidro', 'UN', 29.90, '2025-05-12', 120, '2025-05-09'),
+(111, 'Capinha de Celular', 'UN', 24.90, '2025-05-11', 200, '2025-05-08'), (112, 'Mouse Gamer',
+'UN', 59.90, '2025-05-10', 75, '2025-05-07'), (113, 'Teclado Gamer', 'UN', 149.90, '2025-05-09',
+60, '2025-05-06'), (114, 'Monitor 24 Polegadas', 'UN', 699.90, '2025-04-20', 30, '2025-04-15'),
+(115, 'Notebook 8GB RAM', 'UN', 2499.90, '2025-04-18', 25, '2025-04-12'), (116, 'Impressora
+Multifuncional', 'UN', 399.90, '2025-05-05', 22, '2025-05-02'), (117, 'Papel A4', '500F', 19.90,
+'2025-05-20', 200, '2025-05-17'), (118, 'Caneta Esferográfica', 'UN', 1.49, '2025-05-22', 500,
+'2025-05-19'), (119, 'Lápis Preto', 'UN', 1.19, '2025-05-21', 450, '2025-05-18'), (120, 'Borracha',
+'UN', 0.99, '2025-05-20', 380, '2025-05-17'), (121, 'Apontador', 'UN', 2.49, '2025-05-19', 250,
+'2025-05-16'), (122, 'Caderno 10 Matérias', 'UN', 19.90, '2025-05-18', 150, '2025-05-15'), (123,
+'Caderno Universitário', 'UN', 15.90, '2025-05-17', 180, '2025-05-14'), (124, 'Mochila Escolar',
+'UN', 79.90, '2025-05-10', 60, '2025-05-07'), (125, 'Estojo', 'UN', 12.90, '2025-05-09', 120, '2025
+05-06'), (126, 'Régua 30cm', 'UN', 3.49, '2025-05-08', 200, '2025-05-05'), (127, 'Transferidor',
+'UN', 2.99, '2025-05-07', 180, '2025-05-04'), (128, 'Compasso', 'UN', 7.90, '2025-05-06', 90,
+'2025-05-03'), (129, 'Tesoura Escolar', 'UN', 4.99, '2025-05-05', 110, '2025-05-02'), (130, 'Cola
+Branca', '90G', 3.79, '2025-05-04', 150, '2025-05-01'), (131, 'Cola Bastão', '40G', 2.99, '2025-05
+03', 180, '2025-04-30'), (132, 'Marcador de Texto', 'UN', 2.49, '2025-05-02', 220, '2025-04-29'),
+(133, 'Pincel Atômico', 'UN', 1.99, '2025-05-01', 250, '2025-04-28'), (134, 'Durex', 'UN', 3.49,
+'2025-04-30', 190, '2025-04-27'), (135, 'Clips', 'CX', 2.19, '2025-04-29', 300, '2025-04-26'), (136,
+'Grampeador', 'UN', 12.90, '2025-04-28', 70, '2025-04-25'), (137, 'Perfurador', 'UN', 9.90, '2025
+04-27', 65, '2025-04-24'), (138, 'Calculadora Científica', 'UN', 49.90, '2025-04-20', 40, '2025-04
+15'), (139, 'Pasta Elástica', 'UN', 8.90, '2025-04-19', 130, '2025-04-14'), (140, 'Plástico para
+Encadernação', 'PC', 0.79, '2025-04-18', 500, '2025-04-13'), (141, 'Fio de Nylon', 'MT', 0.39,
+'2025-04-17', 1000, '2025-04-12'), (142, 'Livro Didático', 'UN', 59.90, '2025-04-10', 45, '2025-04
+05'), (143, 'Dicionário', 'UN', 89.90, '2025-04-08', 30, '2025-04-03'), (144, 'Atlas Geográfico',
+'UN', 49.90, '2025-04-06', 25, '2025-04-01'), (145, 'Camiseta Básica', 'UN', 29.90, '2025-05-20',
+200, '2025-05-17'), (146, 'Calça Jeans', 'UN', 89.90, '2025-05-18', 100, '2025-05-15'), (147,
+'Bermuda', 'UN', 49.90, '2025-05-16', 120, '2025-05-13'), (148, 'Vestido', 'UN', 79.90, '2025-05
+14', 60, '2025-05-11'), (149, 'Blusa de Frio', 'UN', 69.90, '2025-05-12', 80, '2025-05-09'), (150,
+'Meia Social', 'PAR', 7.90, '2025-05-21', 250, '2025-05-18'), (151, 'Cueca', 'UN', 12.90, '2025-05
+19', 180, '2025-05-16'), (152, 'Sutiã', 'UN', 34.90, '2025-05-17', 110, '2025-05-14'), (153,
+'Calcinha', 'UN', 9.90, '2025-05-15', 200, '2025-05-12'), (154, 'Pijama', 'UN', 49.90, '2025-05-13',
+85, '2025-05-10'), (155, 'Roupão', 'UN', 79.90, '2025-05-11', 45, '2025-05-08'), (156, 'Boné', 'UN',
+29.90, '2025-05-09', 95, '2025-05-06'), (157, 'Chapéu de Sol', 'UN', 39.90, '2025-05-07', 50,
+'2025-05-04'), (158, 'Sandália Havaiana', 'PAR', 24.90, '2025-05-20', 180, '2025-05-17'), (159,
+'Tênis Esportivo', 'PAR', 149.90, '2025-05-16', 70, '2025-05-13'), (160, 'Sapato Social', 'PAR',
+179.90, '2025-05-12', 45, '2025-05-09'), (161, 'Bota de Couro', 'PAR', 199.90, '2025-05-08', 35,
+'2025-05-05'), (162, 'Relógio de Pulso', 'UN', 89.90, '2025-05-04', 55, '2025-05-01'), (163,
+'Óculos de Sol', 'UN', 49.90, '2025-05-15', 80, '2025-05-12'), (164, 'Mochila Executiva', 'UN',
+119.90, '2025-05-10', 40, '2025-05-07'), (165, 'Carteira', 'UN', 39.90, '2025-05-06', 65, '2025-05
+03'), (166, 'Cinto', 'UN', 29.90, '2025-05-18', 90, '2025-05-15'), (167, 'Gravata', 'UN', 24.90,
+'2025-05-14', 70, '2025-05-11'), (168, 'Lenço', 'UN', 14.90, '2025-05-10', 85, '2025-05-07'), (169,
+'Touca de Lã', 'UN', 19.90, '2025-05-02', 60, '2025-04-29'), (170, 'Luva de Inverno', 'PAR', 24.90,
+'2025-04-30', 50, '2025-04-27'), (171, 'Cachecol', 'UN', 29.90, '2025-04-28', 45, '2025-04-25'),
+(172, 'Cobertor', 'UN', 79.90, '2025-04-25', 35, '2025-04-22'), (173, 'Toalha de Banho', 'UN',
+29.90, '2025-05-19', 120, '2025-05-16'), (174, 'Lençol Solteiro', 'UN', 49.90, '2025-05-15', 80,
+'2025-05-12'), (175, 'Lençol Casal', 'UN', 69.90, '2025-05-11', 60, '2025-05-08'), (176, 'Edredom
+Casal', 'UN', 129.90, '2025-05-07', 30, '2025-05-04'), (177, 'Travesseiro', 'UN', 34.90, '2025-05
+03', 50, '2025-04-30'), (178, 'Almofada', 'UN', 29.90, '2025-04-29', 70, '2025-04-26'), (179,
+'Tapete', 'UN', 89.90, '2025-04-25', 25, '2025-04-22'), (180, 'Panela de Pressão', 'UN', 129.90,
+'2025-05-18', 40, '2025-05-15'), (181, 'Frigideira Antiaderente', 'UN', 59.90, '2025-05-16', 55,
+'2025-05-13'), (182, 'Panelão de Aço', 'UN', 89.90, '2025-05-14', 35, '2025-05-11'), (183, 'Jogo
+de Talheres', 'UN', 49.90, '2025-05-12', 60, '2025-05-09'), (184, 'Jogo de Pratos', 'UN', 79.90,
+'2025-05-10', 45, '2025-05-07'), (185, 'Taças de Vinho', 'UN', 15.90, '2025-05-08', 80, '2025-05
+05'), (186, 'Copo Americano', 'UN', 1.29, '2025-05-22', 500, '2025-05-19'), (187, 'Garrafa
+Térmica', 'UN', 39.90, '2025-05-18', 65, '2025-05-15'), (188, 'Caneca', 'UN', 12.90, '2025-05-16',
+100, '2025-05-13'), (189, 'Pano de Prato', 'UN', 4.99, '2025-05-14', 150, '2025-05-11'), (190,
+'Luva de Cozinha', 'PAR', 9.90, '2025-05-12', 80, '2025-05-09'), (191, 'Avental', 'UN', 19.90,
+'2025-05-10', 60, '2025-05-07'), (192, 'Tábua de Corte', 'UN', 24.90, '2025-05-08', 45, '2025-05
+05'), (193, 'Faca Chef', 'UN', 49.90, '2025-05-06', 35, '2025-05-03'), (194, 'Processador de
+Alimentos', 'UN', 199.90, '2025-04-15', 15, '2025-04-10'), (195, 'Sanduicheira', 'UN', 89.90,
+'2025-05-10', 25, '2025-05-07'), (196, 'Cafeteira', 'UN', 149.90, '2025-05-08', 30, '2025-05-05'),
+(197, 'Chaleira Elétrica', 'UN', 79.90, '2025-05-06', 28, '2025-05-03'), (198, 'Torradeira', 'UN',
+69.90, '2025-05-04', 32, '2025-05-01'), (199, 'Espremedor de Frutas', 'UN', 39.90, '2025-05-02',
+40, '2025-04-29'), (200, 'Balança Digital', 'UN', 49.90, '2025-04-30', 35, '2025-04-27'), (201, 'Kit
+de Especiarias', 'UN', 29.90, '2025-05-20', 55, '2025-05-17'), (202, 'Pimenta do Reino', '50G',
+8.90, '2025-05-19', 70, '2025-05-16'), (203, 'Canela em Pó', '50G', 6.49, '2025-05-18', 65, '2025
+05-15'), (204, 'Orégano', '20G', 3.99, '2025-05-17', 80, '2025-05-14'), (205, 'Louro', '10G', 2.49,
+'2025-05-16', 90, '2025-05-13'), (206, 'Sal Refinado', '1KG', 2.89, '2025-05-22', 200, '2025-05
+19'), (207, 'Sal Grosso', '1KG', 2.49, '2025-05-21', 150, '2025-05-18'), (208, 'Açúcar Mascavo',
+'1KG', 6.99, '2025-05-20', 80, '2025-05-17'), (209, 'Melado', '500G', 7.49, '2025-05-19', 45,
+'2025-05-16'), (210, 'Vinagre de Álcool', 'LT', 3.29, '2025-05-18', 100, '2025-05-15'), (211,
+'Vinagre Balsâmico', '250ML', 14.90, '2025-05-17', 40, '2025-05-14'), (212, 'Molho de Pimenta',
+'100ML', 7.49, '2025-05-16', 55, '2025-05-13'), (213, 'Shoyu', '150ML', 6.90, '2025-05-15', 65,
+'2025-05-12'), (214, 'Mostarda Amarela', '180G', 5.49, '2025-05-14', 70, '2025-05-11'), (215,
+'Ketchup', '340G', 5.99, '2025-05-13', 85, '2025-05-10'), (216, 'Maionese', '250G', 4.89, '2025-05
+12', 90, '2025-05-09'), (217, 'Molho Barbecue', '200ML', 6.49, '2025-05-11', 50, '2025-05-08'),
+(218, 'Patê de Frango', '150G', 5.90, '2025-05-10', 45, '2025-05-07'), (219, 'Catchup', '340G',
+5.99, '2025-04-09', 85, '2025-04-06'), (220, 'Azeite de Oliva', '500ML', 19.90, '2025-05-20', 60,
+'2025-05-17'), (221, 'Azeite de Oliva Extra Virgem', '500ML', 24.90, '2025-05-18', 45, '2025-05
+15'), (222, 'Óleo de Coco', '200ML', 15.90, '2025-05-16', 40, '2025-05-13'), (223, 'Gergelim',
+'100G', 4.90, '2025-05-14', 55, '2025-05-11'), (224, 'Chia', '150G', 8.90, '2025-05-12', 50, '2025
+05-09'), (225, 'Linhaça', '200G', 4.49, '2025-05-10', 65, '2025-05-07'), (226, 'Quinoa', '200G',
+11.90, '2025-05-08', 35, '2025-05-05'), (227, 'Amaranto', '200G', 10.90, '2025-05-06', 30, '2025
+05-03'), (228, 'Grão de Bico', '500G', 6.99, '2025-05-04', 70, '2025-05-01'), (229, 'Lentilha',
+'500G', 5.49, '2025-05-02', 80, '2025-04-29'), (230, 'Ervilha Seca', '500G', 4.99, '2025-05-20', 65,
+'2025-05-17'), (231, 'Tofu', '250G', 7.90, '2025-05-15', 40, '2025-05-12'), (232, 'Leite de Soja',
+'LT', 5.99, '2025-05-13', 55, '2025-05-10'), (233, 'Leite de Amêndoas', 'LT', 12.90, '2025-05-11',
+35, '2025-05-08'), (234, 'Pão de Queijo Congelado', '500G', 11.90, '2025-05-19', 120, '2025-05
+16'), (235, 'Pizza Congelada', '350G', 15.90, '2025-05-17', 80, '2025-05-14'); -- Copiando
+estrutura para tabela banco_dados_populado.vendas CREATE TABLE IF NOT EXISTS
+`vendas` ( `id_venda` int(11) NOT NULL AUTO_INCREMENT, `data_venda` date NOT NULL,
+`hora_venda` time NOT NULL, `total_venda` decimal(10,2) NOT NULL, `id_cliente` int(11) NOT
+NULL, PRIMARY KEY (`id_venda`), KEY `id_cliente` (`id_cliente`), CONSTRAINT
+`vendas_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) )
+ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1
+COLLATE=latin1_swedish_ci; -- Copiando dados para a tabela banco_dados_populado.vendas:
+~95 rows (aproximadamente) REPLACE INTO `vendas` (`id_venda`, `data_venda`,
+`hora_venda`, `total_venda`, `id_cliente`) VALUES (1, '2025-05-01', '10:30:00', 67.85, 1), (2,
+'2025-05-01', '11:15:00', 44.65, 2), (3, '2025-05-01', '14:20:00', 129.80, 3), (4, '2025-05-02',
+'09:45:00', 89.30, 4), (5, '2025-05-02', '13:30:00', 56.75, 5), (6, '2025-05-02', '16:00:00', 247.85,
+6), (7, '2025-05-03', '10:15:00', 43.85, 7), (8, '2025-05-03', '11:45:00', 74.15, 8), (9, '2025-05-03',
+'14:30:00', 191.90, 9), (10, '2025-05-04', '09:00:00', 37.60, 10), (11, '2025-05-04', '10:30:00',
+112.65, 11), (12, '2025-05-04', '13:45:00', 54.70, 12), (13, '2025-05-05', '08:15:00', 123.40, 13),
+(14, '2025-05-05', '11:00:00', 49.75, 14), (15, '2025-05-05', '15:20:00', 88.25, 15), (16, '2025-05
+06', '09:30:00', 157.70, 16), (17, '2025-05-06', '12:00:00', 31.35, 17), (18, '2025-05-06',
+'14:45:00', 195.50, 18), (19, '2025-05-07', '08:00:00', 42.30, 19), (20, '2025-05-07', '10:30:00',
+63.20, 20), (21, '2025-05-07', '13:15:00', 88.85, 21), (22, '2025-05-08', '09:45:00', 58.45, 22),
+(23, '2025-05-08', '11:30:00', 95.20, 23), (24, '2025-05-08', '14:00:00', 72.30, 24), (25, '2025-05
+09', '08:30:00', 114.50, 25), (26, '2025-05-09', '10:15:00', 122.65, 26), (27, '2025-05-09',
+'13:40:00', 90.40, 27), (28, '2025-05-10', '09:00:00', 55.35, 28), (29, '2025-05-10', '11:20:00',
+78.20, 29), (30, '2025-05-10', '15:30:00', 186.50, 30), (31, '2025-05-11', '08:45:00', 43.45, 31),
+(32, '2025-05-11', '10:00:00', 88.90, 32), (33, '2025-05-11', '13:15:00', 32.65, 33), (34, '2025-05
+12', '09:30:00', 216.40, 34), (35, '2025-05-12', '11:45:00', 56.80, 35), (36, '2025-05-12',
+'14:20:00', 105.30, 36), (37, '2025-05-13', '08:00:00', 67.35, 37), (38, '2025-05-13', '10:15:00',
+98.55, 38), (39, '2025-05-13', '13:30:00', 79.20, 39), (40, '2025-05-14', '09:00:00', 41.05, 40),
+(41, '2025-05-14', '11:30:00', 114.60, 41), (42, '2025-05-15', '08:15:00', 159.85, 42), (43, '2025
+05-15', '10:00:00', 87.45, 43), (44, '2025-05-15', '13:45:00', 335.50, 44), (45, '2025-05-16',
+'09:30:00', 56.30, 45), (46, '2025-05-16', '11:00:00', 123.40, 46), (47, '2025-05-16', '14:20:00',
+94.65, 47), (48, '2025-05-17', '08:00:00', 77.90, 48), (49, '2025-05-17', '10:30:00', 218.70, 49),
+(50, '2025-05-17', '13:15:00', 52.75, 50), (51, '2025-05-18', '09:00:00', 89.25, 51), (52, '2025-05
+18', '11:45:00', 145.60, 52), (53, '2025-05-18', '14:30:00', 64.85, 53), (54, '2025-05-19',
+'08:00:00', 151.20, 54), (55, '2025-05-19', '10:15:00', 76.35, 55), (56, '2025-05-19', '13:00:00',
+39.90, 56), (57, '2025-05-20', '09:30:00', 111.90, 57), (58, '2025-05-20', '11:45:00', 228.50, 58),
+(59, '2025-05-20', '14:15:00', 82.55, 59), (60, '2025-05-21', '08:30:00', 167.45, 60), (61, '2025
+05-21', '10:00:00', 95.30, 61), (62, '2025-05-21', '13:30:00', 58.75, 62), (63, '2025-05-22',
+'09:00:00', 207.20, 63), (64, '2025-05-22', '11:15:00', 48.25, 64), (65, '2025-05-22', '14:00:00',
+133.80, 65), (66, '2025-05-23', '08:45:00', 86.55, 66), (67, '2025-05-23', '10:30:00', 229.70, 67),
+(68, '2025-05-23', '13:15:00', 67.90, 68), (69, '2025-05-24', '09:00:00', 174.25, 69), (70, '2025
+05-24', '11:30:00', 54.10, 70), (71, '2025-05-24', '14:45:00', 98.95, 71), (72, '2025-05-25',
+'08:00:00', 76.45, 72), (73, '2025-05-25', '10:30:00', 186.50, 73), (74, '2025-05-25', '13:00:00',
+63.85, 74), (75, '2025-05-26', '09:15:00', 142.75, 75), (76, '2025-05-26', '11:45:00', 55.20, 76),
+(77, '2025-05-26', '14:30:00', 210.50, 77), (78, '2025-05-27', '08:30:00', 68.90, 78), (79, '2025
+05-27', '10:15:00', 95.20, 79), (80, '2025-05-27', '13:45:00', 124.40, 80), (81, '2025-05-28',
+'09:00:00', 73.85, 81), (82, '2025-05-28', '11:30:00', 198.90, 82), (83, '2025-05-28', '14:15:00',
+56.40, 83), (84, '2025-05-29', '08:45:00', 266.80, 84), (85, '2025-05-29', '10:30:00', 88.35, 85),
+(86, '2025-05-29', '13:20:00', 163.50, 86), (87, '2025-05-30', '09:00:00', 71.15, 87), (88, '2025
+05-30', '11:45:00', 352.50, 88), (89, '2025-05-30', '14:30:00', 64.45, 89), (91, '2025-05-31',
+'10:30:00', 57.70, 91), (93, '2025-06-01', '09:30:00', 159.30, 93), (95, '2025-06-01', '14:20:00',
+68.50, 95), (97, '2025-06-02', '10:45:00', 53.25, 97), (98, '2025-06-02', '13:15:00', 132.60, 98),
+(100, '2025-06-03', '11:30:00', 74.20, 100); /*!40103 SET
+TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */; /*!40101 SET
+SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */; /*!40014 SET
+FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */; /*!40101 SET
+CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */; /*!40111 SET
+SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

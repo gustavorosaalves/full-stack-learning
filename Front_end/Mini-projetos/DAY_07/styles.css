@@ -1,0 +1,155 @@
+:root {
+    --green: #5ed68a;
+    --red: #1ea6c8;
+    --background: #fafafa;
+    --gradient-1: #343e63;
+    --gradient-2: #2a3352;
+  }
+  
+  html {
+    font-size: 12px;
+    font-weight: 300;
+  }
+  
+  body {
+    width: 90vw;
+    margin: 0 auto;
+    background: radial-gradient(var(--gradient1), var(--gradient2));
+    padding: 4rem;
+  }
+  
+  main {
+    text-align: center;
+    background: var(--background);
+    border: solid var(--red);
+    border-width: 8px 8px 8px 8px;
+    min-height: 40vh;
+    border-radius: 2rem 2rem 2rem 2rem;
+    padding: 4rem;
+    color: #1f2933;
+  }
+  
+  h2 {
+    font-size: 3.2rem;
+    margin: 2rem 2rem 2rem 2rem;
+  }
+  
+  p {
+    font-size: 1.8rem;
+  }
+
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  button {
+    border: none;
+    cursor: pointer;
+    background: var(--green);
+    padding: 2rem 6rem;
+    border-radius: 1rem 1rem 0 0;
+    font-size: 1.4rem;
+  }
+  
+  button:last-child {
+    background: var(--red);
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  /* game screen */
+  
+  h3 {
+    font-size: 2rem;
+  }
+  
+  input {
+    border: 2px solid lightgray;
+    background: transparent;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    width: 25rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .stats {
+    text-align: left;
+  }
+  
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .info span {
+    font-size: 1.6rem;
+  }
+
+  #newGameButton {
+    border-radius: 0;
+  }
+  
+  @media (min-width: 800px) {
+    body {
+      width: 60vw;
+    }
+  }
+
+input[type="number"] {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="number"]:focus {
+    border-color: #4a90e2;
+}
+
+button {
+    padding: 0.75rem 1.25rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #357abd;
+}
+
+.result-area {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+
+.result-area p {
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+#textOutput {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+#newGameBtn {
+    width: 100%;
+    background-color: #2ec4b6;
+}
+
+#newGameBtn:hover {
+    background-color: #239b90;
+}
