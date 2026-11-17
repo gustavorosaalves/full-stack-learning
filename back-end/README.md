@@ -9,7 +9,7 @@ Repositório de estudos focado em lógica de programação, estruturas de dados,
 | Tecnologia | Pasta | Foco do Aprendizado |
 | :--- | :--- | :--- |
 | **SQL (Bancos de Dados)** | [`banco-de-dados`](./banco-de-dados) | Modelagem relacional, consultas (`SELECT`, `JOIN`), funções de agregação e manipulação de dados |
-| **Python** | [`python`](./python) | Sintaxe, automação, estruturas de dados e lógica de programação *(Curso Jornada Python)* |
+| **Python** | [`python`](./python) | Sintaxe, automação, estruturas de dados e lógica de programação |
 | **C++** | [`cpp`](./C++) | Algoritmos, tipagem estática, estruturas de repetição, vetores e matrizes |
 
 ## Próximos Passos (Roadmap)
