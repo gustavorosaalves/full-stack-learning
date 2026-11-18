@@ -15,7 +15,5 @@ Repositório de estudos focado em lógica de programação, estruturas de dados,
 
 ## Próximos Passos (Roadmap)
 
-- [ ] Finalizar os exercícios práticos de consultas avançadas em SQL.
 - [ ] Desenvolver os primeiros scripts e automações em Python.
-- [ ] Praticar os pilares da Programação Orientada a Objetos (POO) em C++.
 - [ ] Iniciar estudos de desenvolvimento web back-end (criação de APIs REST e integração com banco de dados).
