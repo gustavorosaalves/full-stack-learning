@@ -1,6 +1,6 @@
 # Estudos de Front-End
 
-Catálogo de mini-projetos práticos e exercícios desenvolvidos ao longo da minha trilha de estudos em HTML5, CSS3 e JavaScript, TypeScript e React.
+Catálogo de mini-projetos práticos e exercícios desenvolvidos ao longo da minha trilha de estudos em HTML, CSS, JavaScript, TypeScript e React.
 
 ## Mini-Projetos (`./mini-projetos`)
 
