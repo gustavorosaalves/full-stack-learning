@@ -11,7 +11,7 @@ Repositório de estudos focado em lógica de programação, estruturas de dados,
 | **SQL (Bancos de Dados)** | [`banco-de-dados`](./banco-de-dados) | Modelagem relacional, consultas (`SELECT`, `JOIN`), funções de agregação e manipulação de dados |
 | **Python** | [`python`](./python) | Sintaxe, automação, estruturas de dados e lógica de programação |
 | **C++** | [`cpp`](./C++) | Algoritmos, tipagem estática, estruturas de repetição, vetores e matrizes |
-| **C++ (POO)** | [`cpp-poo`](./C++-POO) | Programação Orientada a Objetos: classes, objetos, encapsulamento, herança e polimorfismo |
+| **C++ (POO)** | [`cpp-poo`](./C++-POO) | Programação Orientada a Objetos |
 
 ## Próximos Passos (Roadmap)
 
