@@ -11,7 +11,7 @@ Repositório dedicado à documentação da minha evolução em Desenvolvimento F
 
 ## Tecnologias e Ferramentas
 
-* **Front-End:** HTML5, CSS3, JavaScript, TypeScript e React
+* **Front-End:** HTML, CSS, JavaScript, TypeScript e React
 * **Back-End & Dados:** Python, C++, SQL
 * **Versionamento & Ambiente:** Git, GitHub, VS Code
 
