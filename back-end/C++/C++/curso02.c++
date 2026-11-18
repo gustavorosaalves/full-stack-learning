@@ -9,7 +9,6 @@ int main() {
         if (numero % 3 == 0) {
 
          cout << numero << endl;
-   
     }
 
     numero++;
