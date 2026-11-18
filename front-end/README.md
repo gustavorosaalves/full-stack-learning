@@ -9,7 +9,7 @@ Projetos focados na construção de interfaces completas, responsividade e inter
 | # | Projeto | Pasta | Conceitos Praticados |
 | :--- | :--- | :--- | :--- |
 | 01 | **Tributo** | [`TRIBUTO`](./mini-projetos/TRIBUTO) | Estruturação básica de página com HTML e CSS |
-| 02 | **Blog Semântico** | [`BLOG_HTML_SEMANTICO`](./mini-projetos/BLOG_HTML_SEMANTICO) | Tags semânticas do HTML5 e organização de layout |
+| 02 | **Blog Semântico** | [`BLOG_HTML_SEMANTICO`](./mini-projetos/BLOG_HTML_SEMANTICO) | Tags semânticas do HTML e organização de layout |
 | 03 | **hDC Host** | [`HDC_HOST`](./mini-projetos/HDC_HOST) | Landing page responsiva, Flexbox e planos de serviço |
 | 04 | **Clone Home Instagram** | [`HOME_INSTA`](./mini-projetos/HOME_INSTA) | Layout de login, posicionamento e estilização fiel |
 | 05 | **Página de Produto (iPhone)** | [`PROJETO_IPHONE`](./mini-projetos/PROJETO_IPHONE) | Vitrine interativa e troca dinâmica de cores/imagens |
