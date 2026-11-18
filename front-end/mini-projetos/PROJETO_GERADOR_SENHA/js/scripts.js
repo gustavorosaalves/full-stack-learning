@@ -38,7 +38,10 @@ const generatePassword = (getLetterLowerCase, getLetterUpperCase, getNumber, get
         });
     }
 
-    console.log(password);
+    password = password.slice(0, passwordLength);
+    
+    generatedPasswordElement.style.display = "block"
+    generatedPasswordElement.querySelector("h4").innerText = password;
 };
 
 generatePasswordButton.addEventListener("click", () => {
