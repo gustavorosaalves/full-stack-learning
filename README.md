@@ -1,17 +1,17 @@
 # Full-Stack Learning
 
-Repositório dedicado à documentação da minha evolução em desenvolvimento Web Full-Stack, lógica de programação e bancos de dados.
+Repositório dedicado à documentação da minha evolução em Desenvolvimento Full-Stack.
 
 > **Nota:** Os códigos, exercícios e projetos presentes neste repositório foram desenvolvidos durante cursos complementares e trilhas de aprendizado guiado, servindo como base de estudo e prática contínua.
 
 ## Estrutura do Repositório
 
-* **[`front-end/`](./front-end)**: Projetos práticos e exercícios focados em desenvolvimento de interfaces web (HTML, CSS, JavaScript). 
+* **[`front-end/`](./front-end)**: Projetos práticos e exercícios focados em desenvolvimento de interfaces web (HTML, CSS, JavaScript, TypeScript e React). 
 * **[`back-end/`](./back-end)**: Estudos de lógica de programação, algoritmos e bancos de dados (Python, C++, SQL). *(Em andamento)*
 
 ## Tecnologias e Ferramentas
 
-* **Front-End:** HTML5, CSS3, JavaScript
+* **Front-End:** HTML, CSS, JavaScript, TypeScript e React
 * **Back-End & Dados:** Python, C++, SQL
 * **Versionamento & Ambiente:** Git, GitHub, VS Code
 
