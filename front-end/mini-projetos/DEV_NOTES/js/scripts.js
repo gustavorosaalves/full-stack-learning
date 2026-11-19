@@ -31,15 +31,11 @@ function saveNotes(notes) {
 
 function createNote(id, content, fixed) {
   const element = document.createElement("div");
-
   element.classList.add("note");
 
   const textarea = document.createElement("textarea");
-
   textarea.value = content;
-
   textarea.placeholder = "Adicione algum texto...";
-
   element.appendChild(textarea);
 
   if (fixed) {
@@ -47,49 +43,41 @@ function createNote(id, content, fixed) {
   }
 
   const pinIcon = document.createElement("i");
-
-  pinIcon.classList.add(...["bi", "bi-pin"]);
-
+  pinIcon.classList.add("bi", "bi-pin");
   element.appendChild(pinIcon);
 
   const deleteIcon = document.createElement("i");
-
-  deleteIcon.classList.add(...["bi", "bi-x-lg"]);
-
+  deleteIcon.classList.add("bi", "bi-x-lg");
   element.appendChild(deleteIcon);
 
   const duplicateIcon = document.createElement("i");
-
-  duplicateIcon.classList.add(...["bi", "bi-file-earmark-plus"]);
-
+  duplicateIcon.classList.add("bi", "bi-file-earmark-plus");
   element.appendChild(duplicateIcon);
 
-  element.querySelector("textarea").addEventListener("keydown", () => {
-    const noteContent = element.querySelector("textarea").value;
+  textarea.addEventListener("input", () => {
+    const noteContent = textarea.value;
     updateNote(id, noteContent);
   });
 
-  element.querySelector(".bi-x-lg").addEventListener("click", () => {
+  deleteIcon.addEventListener("click", () => {
     deleteNote(id, element);
   });
 
-  element.querySelector(".bi-pin").addEventListener("click", () => {
+  pinIcon.addEventListener("click", () => {
     toggleFixNote(id);
   });
 
-  element
-    .querySelector(".bi-file-earmark-plus")
-    .addEventListener("click", () => {
-      copyNote(id);
-    });
+  duplicateIcon.addEventListener("click", () => {
+    copyNote(id);
+  });
 
   return element;
 }
 
 function addNote() {
-  const notes = getNotes();
+  if (!noteInput.value.trim()) return;
 
-  const noteInput = document.querySelector("#note-content");
+  const notes = getNotes();
 
   const noteObject = {
     id: generateId(),
@@ -97,57 +85,56 @@ function addNote() {
     fixed: false,
   };
 
-  const noteElement = createNote(noteObject.id, noteObject.content);
-
+  const noteElement = createNote(noteObject.id, noteObject.content, noteObject.fixed);
   notesContainer.appendChild(noteElement);
 
   notes.push(noteObject);
-
   saveNotes(notes);
+
+  noteInput.value = "";
 }
 
 function generateId() {
-  return Math.floor(Math.random() * 5000);
+  return Date.now();
 }
 
 function updateNote(id, newContent) {
   const notes = getNotes();
-  const targetNote = notes.filter((note) => note.id === id)[0];
+  const targetNote = notes.find((note) => note.id === id);
 
-  targetNote.content = newContent;
-
-  saveNotes(notes);
+  if (targetNote) {
+    targetNote.content = newContent;
+    saveNotes(notes);
+  }
 }
 
 function deleteNote(id, element) {
   const notes = getNotes().filter((note) => note.id !== id);
-
   saveNotes(notes);
-
   notesContainer.removeChild(element);
 }
 
 function toggleFixNote(id) {
   const notes = getNotes();
-  const targetNote = notes.filter((note) => note.id === id)[0];
+  const targetNote = notes.find((note) => note.id === id);
 
-  targetNote.fixed = !targetNote.fixed;
-
-  saveNotes(notes);
-
-  showNotes();
+  if (targetNote) {
+    targetNote.fixed = !targetNote.fixed;
+    saveNotes(notes);
+    showNotes();
+  }
 }
 
 function searchNotes(search) {
   const searchResults = getNotes().filter((note) =>
-    note.content.includes(search)
+    note.content.toLowerCase().includes(search.toLowerCase())
   );
 
   if (search !== "") {
     cleanNotes();
 
     searchResults.forEach((note) => {
-      const noteElement = createNote(note.id, note.content);
+      const noteElement = createNote(note.id, note.content, note.fixed);
       notesContainer.appendChild(noteElement);
     });
 
@@ -155,13 +142,14 @@ function searchNotes(search) {
   }
 
   cleanNotes();
-
   showNotes();
 }
 
 function copyNote(id) {
   const notes = getNotes();
-  const targetNote = notes.filter((note) => note.id === id)[0];
+  const targetNote = notes.find((note) => note.id === id);
+
+  if (!targetNote) return;
 
   const noteObject = {
     id: generateId(),
@@ -170,40 +158,37 @@ function copyNote(id) {
   };
 
   const noteElement = createNote(noteObject.id, noteObject.content, false);
-
   notesContainer.appendChild(noteElement);
 
   notes.push(noteObject);
-
   saveNotes(notes);
 }
 
 function exportData() {
-  const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+  const notes = getNotes();
 
   const csvString = [
     ["ID", "Conteúdo", "Fixado?"],
-    ...notes.map((note) => [note.id, note.content, note.fixed]),
+    ...notes.map((note) => [
+      note.id,
+      `"${note.content.replace(/"/g, '""')}"`,
+      note.fixed ? "Sim" : "Não",
+    ]),
   ]
     .map((e) => e.join(","))
     .join("\n");
 
   const element = document.createElement("a");
-
-  element.href = "data:text/csv;charset=utf-8," + encodeURI(csvString);
-
+  element.href = "data:text/csv;charset=utf-8,\uFEFF" + encodeURIComponent(csvString);
   element.target = "_blank";
-
   element.download = "export.csv";
-
   element.click();
 }
 
 addNoteBtn.addEventListener("click", () => addNote());
 
-searchInput.addEventListener("keyup", (e) => {
+searchInput.addEventListener("input", (e) => {
   const search = e.target.value;
-
   searchNotes(search);
 });
 
