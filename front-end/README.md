@@ -24,6 +24,7 @@ Projetos focados na construção de interfaces completas, responsividade e inter
 | 14 | **Desafio JavaScript — Dia 06** | [`DAY_06`](./mini-projetos/DAY_06) | Lógica e prática guiada em JavaScript |
 | 15 | **Desafio JavaScript — Dia 07** | [`DAY_07`](./mini-projetos/DAY_07) | Lógica e prática guiada em JavaScript |
 | 16 | **Gerador de Senhas** | [`GERADOR_SENHA`](./mini-projetos/GERADOR_SENHA) | Geração dinâmica de senhas, manipulação do DOM, funções, arrays e eventos em JavaScript |
+| 17 | **DevNotes** | [`DEV_NOTES`](./mini-projetos/DEV_NOTES) | CRUD completo, LocalStorage, JSON, busca dinâmica, fixação/duplicação de notas e exportação em CSV |
 
 ---
 
