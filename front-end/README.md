@@ -37,3 +37,4 @@ Anotações e códigos de prática divididos por fundamento:
 * **Fundamentos de JavaScript:** [`INTRO_JS`](./exercicios/INTRO_JS), [`OPERADORES`](./exercicios/OPERADORES), [`ESTRUTURAS`](./exercicios/ESTRUTURAS), [`FUNÇÕES`](./exercicios/FUNÇÕES), [`ARRAYS_E_OBJETOS`](./exercicios/ARRAYS_E_OBJETOS).
 * **JavaScript Avançado & Browser:** [`OOP`](./exercicios/OOP) (Orientação a Objetos), [`DOM`](./exercicios/DOM), [`EVENTOS`](./exercicios/EVENTOS), [`DEBUG`](./exercicios/DEBUG), [`ASYNC`](./exercicios/ASYNC).
 * **Desafios Diários (JS em 7 Dias):** [`DAY_01`](./exercicios/DAY_01), [`DAY_02`](./exercicios/DAY_02), [`DAY_03`](./exercicios/DAY_03).
+* - **React:** [`INTRO_REACT`](./exercicios/INTRO_REACT), [`FUNDAMENTOS_REACT`](./exercicios/FUNDAMENTOS_REACT).
