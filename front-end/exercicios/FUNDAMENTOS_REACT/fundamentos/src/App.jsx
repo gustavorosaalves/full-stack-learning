@@ -3,6 +3,7 @@ import FirstComponent from './components/FirstComponent'
 
 function App() {
   return ( <div className="app">
+    {/* comentário JSX */}
     <h1>Fundamentos do React</h1>
     <FirstComponent/>
   </div>
