@@ -3,6 +3,7 @@ import night from './assets/night.jpg';
 import Data from './components/Data';
 import ListRender from './components/ListRender';
 import ConditionalRender from './components/ConditionalRender';
+import ShowUserName from './components/ShowUserName';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Data/>
       <ListRender/>
       <ConditionalRender/>
+      <ShowUserName name="Pedro" />
     </div>
   );
 };
