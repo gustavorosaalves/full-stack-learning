@@ -7,7 +7,7 @@ import ShowUserName from "./components/ShowUserName";
 import CarDetails from "./components/CarDetails";
 import Fragment from "./components/Fragment";
 import Container from "./components/Container";
-import { Children } from "react";
+import ExecuteFunction from "./components/ExecuteFunction";
 
 const cars = [
   { id: 1, brand: "Ferrari", color: "Amarelo", km: 0 },
@@ -16,6 +16,10 @@ const cars = [
 ];
 
 function App() {
+  function showMessage() {
+    console.log("Evento do componente pai");
+  }
+
   return (
     <div className="App" style={{ paddingBottom: "500px" }}>
       <h1>Avançando em React</h1>
@@ -40,6 +44,7 @@ function App() {
       <Container>
         <p>Alguma coisa</p>
       </Container>
+      <ExecuteFunction myfunction={showMessage} />
     </div>
   );
 }
