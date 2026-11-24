@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const ShowUserName = (props) => {
   return (
     <div>
-        <h2>o nome do usuário é: {props.name}</h2>
+      <h2>o nome do usuário é: {props.name}</h2>
     </div>
   );
 };
 
-export default ShowUserName
+export default ShowUserName;
