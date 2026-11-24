@@ -1,6 +1,7 @@
 import './App.css';
 import night from './assets/night.jpg';
 import Data from './components/Data';
+import ListRender from './components/ListRender';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <img src="/img.jpg" alt="Alguma imagem" />
       <img src={night} alt="Outra imagem" />
       <Data/>
+      <ListRender/>
     </div>
   );
 };
