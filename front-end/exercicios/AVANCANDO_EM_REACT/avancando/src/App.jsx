@@ -5,6 +5,7 @@ import ListRender from "./components/ListRender";
 import ConditionalRender from "./components/ConditionalRender";
 import ShowUserName from "./components/ShowUserName";
 import CarDetails from "./components/CarDetails";
+import Fragment from "./components/Fragment";
 
 const cars = [
   { id: 1, brand: "Ferrari", color: "Amarelo", km: 0 },
@@ -33,6 +34,7 @@ function App() {
           km={car.km}
         />
       ))}
+      <Fragment />
     </div>
   );
 }
