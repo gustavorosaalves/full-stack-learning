@@ -1,9 +1,9 @@
 import "./MyForm.css";
 import { useState } from "react";
 
-const MyForm = () => {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
+const MyForm = ({ userName, userEmail }) => {
+  const [name, setName] = useState(userName);
+  const [email, setEmail] = useState(userEmail);
 
   const handlename = (e) => {
     setName(e.target.value);
@@ -26,6 +26,7 @@ const MyForm = () => {
             name="name"
             placeholder="Digite seu nome"
             onChange={handlename}
+            value={name || ""}
           />
         </div>
         <label>
@@ -35,6 +36,7 @@ const MyForm = () => {
             name="email"
             placeholder="Digite o seu e-mail"
             onChange={(e) => setEmail(e.target.value)}
+            value={email || ""}
           />
         </label>
         <input type="submit" value="Enviar" />
